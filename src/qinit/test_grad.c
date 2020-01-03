@@ -33,11 +33,11 @@ void test_grad_a(int nmol, int npar, mol_data * md,
     int atpar[NATOMS+1], double * a, double * w,
     basis_type btype, basis_gc * bas, double * boys_array){
 
-  int measures[] = {111,666,6,1};
+  int measures[] = {MEASURE_E0, MEASURE_S0, MEASURE_S, MEASURE_E};
   for(int j=0; j<nmol; j++){
     printf("mol: %4d\n", j);
     for(int z=0; z<sizeof(measures)/sizeof(measures[0]); z++){
-      printf("f = %d\n", measures[z]);
+      printf("f = %s\n", measure_names[measures[z]]);
       double g1[NATOMS]={}, g2[NATOMS]={};
       calc_gradient_mol_num(measures[z], npar, g1, md+j, a, w,  btype, bas, boys_array);
       calc_gradient_mol    (measures[z], npar, g2, md+j, atpar, btype, bas, boys_array);

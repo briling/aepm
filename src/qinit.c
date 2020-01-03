@@ -1,10 +1,11 @@
 #include "q.h"
+#include "task_q.h"
 #include "qinit.h"
 #include <stddef.h>
 #include <pthread.h>
 #include "mytime.h"
 
-#define MEASURE 6
+#define MEASURE MEASURE_S
 #define NPROC 1
 int nproc = NPROC;
 pthread_t * threads;
@@ -64,7 +65,7 @@ int main(int argc, char * argv[]){
         %s basis.in list.in [out] [arguments]\n", argv[0]);
     printf("  command-line arguments:\n\
         np:%%d       -- number of threads (if compiled)\n\
-        f:%%d        -- measure\n\
+        f:%%s        -- measure\n\
         save:%%d     -- save guesses after optimization\n\
         check:%%d    -- check the measure on molecules (1 -- atcv+cap, 2 -- at0cv)\n\
         clust:%%d    -- group molecules wrt parameters\n\
@@ -79,6 +80,7 @@ int main(int argc, char * argv[]){
   int clust   = 0;
   int save    = 0;
   int measure = MEASURE;
+  char measure_s[256] = {};
   ostr op = {
     .MG = 1e-5,  .K = 128,
     .o1dpars = {
@@ -88,7 +90,7 @@ int main(int argc, char * argv[]){
   };
   for(int i=3; i<argc; i++){
     if( sscanf (argv[i], "np:%d",      &nproc) ) { continue; }
-    if( sscanf (argv[i], "f:%d",     &measure) ) { continue; }
+    if( sscanf (argv[i], "f:%s",    measure_s) ) { continue; }
     if( sscanf (argv[i], "save:%d",     &save) ) { continue; }
     if( sscanf (argv[i], "check:%d",   &check) ) { continue; }
     if( sscanf (argv[i], "clust:%d",   &clust) ) { continue; }
@@ -96,6 +98,13 @@ int main(int argc, char * argv[]){
     if( sscanf (argv[i], "o1:%d,%lf,%lf,%lf,%lf", &op.o1dpars.K, &op.o1dpars.G, &op.o1dpars.h, &op.o1dpars.D, &op.o1dpars.H ) ) { continue; }
     if(! (fo = fopen(argv[i], "w"))){
       fo = stdout;
+    }
+  }
+  str_toupper(measure_s);
+  for(int i=0; i<sizeof(measure_names)/sizeof(measure_names[0]); i++){
+    if(!strcmp(measure_s, measure_names[i])){
+      measure = i;
+      break;
     }
   }
 
@@ -266,7 +275,7 @@ int main(int argc, char * argv[]){
       sol_save(md, fnames[i], btype, bas, boys_array);
     }
   }
-  fprintf(fo, "\nf:%d\n", measure);
+  fprintf(fo, "\nf:%s\n", measure_names[measure]);
   fprintf(fo, "rel=%d, fn=%d\n", !!urelconst, finite_nuclei);
   conv_par_print(atpar, fatpar, a, fa, fo);
 

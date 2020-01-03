@@ -126,8 +126,8 @@ void mols_check(int nmol, mol_data * md,
     mx_BHBt_sym(M, F, C);
     jacobi(F, C, V, M, 1e-15, 20, NULL);
     eigensort(M, V, C);
-    f1[i] = calc_only_measure(1, C, md+i);
-    f6[i] = calc_only_measure(6, C, md+i);
+    f1[i] = calc_only_measure(MEASURE_E, C, md+i);
+    f6[i] = calc_only_measure(MEASURE_S, C, md+i);
     fs[i] = measure_minoverlap(md[i].N, md[i].M, md[i].core, md[i].S, md[i].C0, C);
     dc[i] = measure_ortho     (md[i].N, md[i].M, md[i].core, md[i].S, md[i].C0, C);
     free(V);

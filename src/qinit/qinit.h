@@ -1,5 +1,14 @@
 #define NATOMS NELEMENTS
 
+enum measure_enum { MEASURE_E, MEASURE_S, MEASURE_E0, MEASURE_S0 };
+
+static const char measure_names[][4] = {
+  [MEASURE_E ] = "E",
+  [MEASURE_S ] = "S",
+  [MEASURE_E0] = "E0",
+  [MEASURE_S0] = "S0",
+};
+
 typedef struct{
   int M, N, core;
   mol * m;
@@ -69,14 +78,14 @@ void * calc_gradient_mol_ll(void * arg);
 
 int measure_ortho(int N, int M, int core, double * S, double * C0, double * C);
 double measure_minoverlap(int N, int M, int core, double * S, double * C0, double * C);
-double measure1(int N, int M, int core, double * F0, double * V0, double * C);
-double measure111(int N, int M, int core, double * F0, double * V0, double * C);
-double measure6(int N, int M, int core, double * P0, double * C);
-double measure666(int N, int M, int core, double * P0, double * C);
-double measure111_grad( int npar, int N, int M, int core, int * mpl, double * F0, double * V0, double * C,  double * V, double * Gs, double * g1);
-double measure666_grad( int npar, int N, int M, int core, int * mpl, double * P0, double * C,  double * V, double * Gs, double * g1);
-double measure1_grad( int npar, int N, int M, int core, int * mpl, double * F0, double * V0, double * C,  double * V, double * Gs, double * g1);
-double measure6_grad( int npar, int N, int M, int core, int * mpl, double * P0, double * C,  double * V, double * Gs, double * g1);
+double measure_E(int N, int M, int core, double * F0, double * V0, double * C);
+double measure_E_grad( int npar, int N, int M, int core, int * mpl, double * F0, double * V0, double * C,  double * V, double * Gs, double * g1);
+double measure_S(int N, int M, int core, double * P0, double * C);
+double measure_S_grad( int npar, int N, int M, int core, int * mpl, double * P0, double * C,  double * V, double * Gs, double * g1);
+double measure_S0(int N, int M, int core, double * P0, double * C);
+double measure_S0_grad( int npar, int N, int M, int core, int * mpl, double * P0, double * C,  double * V, double * Gs, double * g1);
+double measure_E0(int N, int M, int core, double * F0, double * V0, double * C);
+double measure_E0_grad( int npar, int N, int M, int core, int * mpl, double * F0, double * V0, double * C,  double * V, double * Gs, double * g1);
 
 double calc_gradient_mol(int measure, int npar, double * g, mol_data * md, int atpar[], basis_type btype, basis_gc * bas, double * boys_array);
 void test_grad_a(int nmol, int npar, mol_data * md, int atpar[NATOMS+1], double * a, double * w, basis_type btype, basis_gc * bas, double * boys_array);
@@ -88,39 +97,33 @@ void Hmod_only_solve(mol_data * md, double * V, double * C, double * F);
 void sol_save(mol_data * md, const char fname[], basis_type btype, void * bas, double * boys_array);
 
 static inline double calc_only_measure(int measure, double * C, mol_data * md){
-  if(measure == 1){
-    return measure1(md->N, md->M, md->core, md->F0, md->V0, C);
-  }
-  else if(measure == 6){
-    return measure6(md->N, md->M, md->core, md->P0, C);
-  }
-  else if(measure == 111){
-    return measure111(md->N, md->M, md->core, md->F0, md->V0, C);
-  }
-  else if(measure == 666){
-    return measure666(md->N, md->M, md->core, md->P0, C);
-  }
-  else{
-    GOTOHELL;
+  switch(measure){
+    case MEASURE_E:
+      return measure_E(md->N, md->M, md->core, md->F0, md->V0, C);
+    case MEASURE_S:
+      return measure_S(md->N, md->M, md->core, md->P0, C);
+    case MEASURE_E0:
+      return measure_E0(md->N, md->M, md->core, md->F0, md->V0, C);
+    case MEASURE_S0:
+      return measure_S0(md->N, md->M, md->core, md->P0, C);
+    default:
+      GOTOHELL;
   }
 }
 
 static inline double calc_grad_measure(int measure, int npar,
     double * g, double * C, double * V, double * Gs, mol_data * md){
-  if(measure == 1){
-    return measure1_grad(npar, md->N, md->M, md->core, md->mpl, md->F0, md->V0, C, V, Gs, g);
-  }
-  else if(measure == 6){
-    return measure6_grad(npar, md->N, md->M, md->core, md->mpl, md->P0, C, V, Gs, g);
-  }
-  else if(measure == 111){
-    return measure111_grad(npar, md->N, md->M, md->core, md->mpl, md->F0, md->V0, C, V, Gs, g);
-  }
-  else if(measure == 666){
-    return measure666_grad(npar, md->N, md->M, md->core, md->mpl, md->P0, C, V, Gs, g);
-  }
-  else{
-    GOTOHELL;
+  switch(measure){
+    case MEASURE_E:
+      return measure_E_grad(npar, md->N, md->M, md->core, md->mpl, md->F0, md->V0, C, V, Gs, g);
+    case MEASURE_S:
+      return measure_S_grad(npar, md->N, md->M, md->core, md->mpl, md->P0, C, V, Gs, g);
+    case MEASURE_E0:
+      return measure_E0_grad(npar, md->N, md->M, md->core, md->mpl, md->F0, md->V0, C, V, Gs, g);
+    case MEASURE_S0:
+      return measure_S0_grad(npar, md->N, md->M, md->core, md->mpl, md->P0, C, V, Gs, g);
+    default:
+      GOTOHELL;
   }
 }
 

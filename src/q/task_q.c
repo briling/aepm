@@ -1,7 +1,6 @@
 #include "q.h"
 #include "task_q.h"
 #include "task_io.h"
-#include <ctype.h>
 
 void task_q_print(FILE * f, taskstr * task){
   fprintf(f, "#control\n");
@@ -62,14 +61,6 @@ taskstr task_q_init(theory_t theory, void * urelconst, char * fbname, char * fna
   change_suffix(task.control.vectors, fname, ".vec", sizeof(task.control.vectors));
 
   return task;
-}
-
-static inline void str_toupper(char * s){
-  while(*s){
-    *s = toupper(*s);
-    s++;
-  }
-  return;
 }
 
 theory_t task_q_proc(taskstr * task){

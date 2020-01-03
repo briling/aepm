@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef enum {NIL, INIT} theory_t;
 
@@ -28,4 +29,12 @@ void     task_q_print (FILE * f, taskstr * task);
 theory_t task_q_proc  (taskstr * task);
 
 void change_suffix(char * newname, const char * name, const char * suf, size_t size);
+
+static inline void str_toupper(char * s){
+  while(*s){
+    *s = toupper(*s);
+    s++;
+  }
+  return;
+}
 

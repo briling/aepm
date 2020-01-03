@@ -24,9 +24,9 @@ double measure_minoverlap(int N, int M, int core,
   return d;
 }
 
-double measure1(int N, int M, int core,
+double measure_E(int N, int M, int core,
     double * F0, double * V0, double * C){
-  // occ-occ block
+
   double * CFC = malloc(symsize(N/2)*sizeof(double));
   mx_BHBt_sym2(N/2, M, CFC, F0, C);
   double * v1 = smalldiag(N/2, CFC);
@@ -39,7 +39,7 @@ double measure1(int N, int M, int core,
   return d1;
 }
 
-double measure111(int N, int M, int core,
+double measure_E0(int N, int M, int core,
     double * F0, double * V0, double * C){
 
   double * CFC = malloc(symsize(N/2)*sizeof(double));
@@ -52,7 +52,7 @@ double measure111(int N, int M, int core,
   return d1;
 }
 
-double measure6(int N, int M, int core, double * P0, double * C){
+double measure_S(int N, int M, int core, double * P0, double * C){
   double * CPC = malloc(symsize(N/2)*sizeof(double));
   mx_BHBt_sym2(N/2, M, CPC, P0, C);
   double * v1 = smalldiag(N/2, CPC);
@@ -65,8 +65,7 @@ double measure6(int N, int M, int core, double * P0, double * C){
   return d6;
 }
 
-double measure666(int N, int M, int core,
-    double * P0, double * C){
+double measure_S0(int N, int M, int core, double * P0, double * C){
 
   double * CPC = malloc(symsize(N/2)*sizeof(double));
   mx_BHBt_sym2(N/2, M, CPC, P0, C);
@@ -78,7 +77,7 @@ double measure666(int N, int M, int core,
   return d1;
 }
 
-double measure111_grad(
+double measure_E0_grad(
     int npar, int N, int M, int core, int * mpl,
     double * F0, double * V0,
     double * C,  double * V,
@@ -107,7 +106,7 @@ double measure111_grad(
   return d1;
 }
 
-double measure666_grad(
+double measure_S0_grad(
     int npar, int N, int M, int core, int * mpl,
     double * P0,
     double * C,  double * V,
@@ -136,7 +135,7 @@ double measure666_grad(
   return d1;
 }
 
-double measure1_grad(
+double measure_E_grad(
     int npar, int N, int M, int core, int * mpl,
     double * F0, double * V0,
     double * C,  double * V,
@@ -182,7 +181,7 @@ double measure1_grad(
   return d1;
 }
 
-double measure6_grad(
+double measure_S_grad(
     int npar, int N, int M, int core, int * mpl,
     double * P0,
     double * C,  double * V,
