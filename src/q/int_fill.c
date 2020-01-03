@@ -51,21 +51,6 @@ void atcv_ij_add(mol * m, int M, double * H, atomo * ao, atomo * aox, double * b
   return;
 }
 
-void atcv_ij_add2(mol * m, int M, double * Hs,
-    int npar, int atpar[],
-    atomo * ao, atomo * aox, double * boys_array){
-  for(int i=0; i<M; i++){
-    for(int j=i; j<M; j++){
-      for(int p=0; p<npar; p++){
-        // TODO: use md->mpl
-        double * H = Hs + symsize(M)*p;
-        H[mpos(i,j)] += int_ij0_sum2(m, p, atpar, ao+i, ao+j, aox, boys_array);
-      }
-    }
-  }
-  return;
-}
-
 void atcv_ij_add_grad(mol * m, int M,
     double * Gs, int npar, int atpar[],
     atomo * ao, atomo * aox, double * boys_array){

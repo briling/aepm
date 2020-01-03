@@ -39,71 +39,6 @@ static void def_all(int n1, int n2,
   return;
 }
 
-static double def(int n1, int n2, int N, double PAx, double PBx, double p2_1) __attribute__ ((unused));
-static double def(int n1, int n2, int N, double PAx, double PBx, double p2_1){
-
-  if(N<0 || N>n1+n2 || n1<0 || n2<0){
-    return 0.0;
-  }
-
-  double arr0[(L_MAX+1)*2+1]={};
-  double arr1[(L_MAX+1)*2+1]={};
-  arr0[0] = 1.0;
-
-  int N1 = MAX(N-n1, 0    );
-  int N2 = MIN(N+n1, n1+n2);
-  for(int j=1; j<=n2; j++){
-
-    int N3 = MAX(N1-(n2-j), 1   );
-    int N4 = MIN(N2+(n2-j), n2-1);
-
-    for(int Nk=N3; Nk<=N4; Nk++){
-      arr1[Nk] = PBx    * arr0[Nk]
-               + p2_1   * arr0[Nk-1]
-               + (Nk+1) * arr0[Nk+1] ;
-    }
-    if(N1 <= n2-j){
-      arr1[0] = PBx     * arr0[0]
-              +           arr0[1];
-    }
-    if(N2 >= j){
-      arr0[n2] = PBx    * arr0[n2]
-               + p2_1   * arr0[n2-1];
-    }
-    arr0[0] = arr1[0];
-    for(int i=N3; i<=N4; i++){
-       arr0[i] = arr1[i];
-    }
-
-  }
-
-  for(int j=1; j<=n1; j++){
-
-    int N1 = MAX(N-(n1-j), 1     );
-    int N2 = MIN(N+(n1-j), n1+n2-1);
-
-    for(int Ni=N1; Ni<=N2; Ni++){
-      arr1[Ni]    = PAx    * arr0[Ni]
-                  + p2_1   * arr0[Ni-1]
-                  + (Ni+1) * arr0[Ni+1];
-    }
-    if(N <= n1-j){
-      arr1[0]     = PAx    * arr0[0]
-                  +          arr0[1];
-    }
-    if(N >= n2+j){
-      arr0[n1+n2] = PAx    * arr0[n1+n2]
-                  + p2_1   * arr0[n1+n2-1];
-    }
-    arr0[0] = arr1[0];
-    for(int i=N1; i<=N2; i++){
-      arr0[i] = arr1[i];
-    }
-
-  }
-  return arr1[N];
-}
-
 static double def0_inner(int n1, int n2, double PAx, double PBx, double p2_1){
 
   // n1 >= n2
@@ -185,6 +120,7 @@ double def0(int n1, int n2, double PAx, double PBx, double p21){
       else if(n1==2){
         return PAx * PAx + p21;
       }
+      break;
     case 3:
       if(n1==2){
         return PAx * PAx * PBx + p21 * (PBx + 2.0 * PAx);
@@ -192,6 +128,7 @@ double def0(int n1, int n2, double PAx, double PBx, double p21){
       else if(n1==3){
         return PAx * (PAx * PAx + 3.0 * p21);
       }
+      break;
     case 4:
       if(n1==2){
         return (PAx * PAx * PBx * PBx + p21 * PAx * PAx + p21 * PBx * PBx + 4.0 * p21 * PAx * PBx + 3.0 * p21 * p21);
@@ -251,22 +188,6 @@ void filldef1(int n1, int n2, double d[L_MAX*2+1],
         return;
       }
       break;
-  }
-#if 0
-  for(int N=0; N<n; N++){
-    d[N] = def(n1, n2, N, PAx, PBx, p21);
-  }
-#else
-  def_all(n1, n2, PAx, PBx, p21, d);
-#endif
-  return;
-}
-
-void filldef11(int n1, int n2, double d[L_MAX*2+1],
-              double PAx, double PBx, double p21){
-  if(n1<n2){
-    int    ti = n1;  n1  = n2;  n2  = ti;
-    double td = PAx; PAx = PBx; PBx = td;
   }
   def_all(n1, n2, PAx, PBx, p21, d);
   return;

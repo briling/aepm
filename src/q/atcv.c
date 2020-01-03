@@ -1097,18 +1097,6 @@ void atcv_nozzle_fill_all1(atomo * ao, double * a, double * w, mol * m){
   return;
 }
 
-void atcv_nozzle_fill_all2(atomo * ao, double * a, double * w, mol * m){
-  for(int k=0; k<m->n; k++){
-    ao[k].l  = 0;
-    ao[k].m  = 0;
-    ao[k].ng = 1;
-    ao[k].k  = k;
-    ao[k].a  = a + k;
-    ao[k].w  = w + k;
-  }
-  return;
-}
-
 void charge1_norm(double * a, double * w){
   *w = S1r2i(*a);
   return;

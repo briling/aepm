@@ -32,11 +32,11 @@
  * n     : 0, 1, 2, 3, 4, 5, 6, ...
  * M1[n] : 0,+1,-1,+2,-2,+3,-3, ...
  * thus
- * M1[n] = n%2 ? (n+1)/2 : -(n+1)/2
+ * M1[n] = (n%2) ? (n+1)/2 : -(n+1)/2
  */
 
 static inline int M1(int n){
-  return n%2 ? (n+1)/2 : -(n+1)/2;
+  return (n%2) ? (n+1)/2 : -(n+1)/2;
 }
 
 static void vec_to_p(unsigned int n, atomo * ao, double * Ct, double * C){

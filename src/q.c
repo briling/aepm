@@ -10,7 +10,7 @@ int main(int argc, char * argv[]){
   }
 
   FILE * fo;
-  if (argc<4 || (fo = fopen(argv[3], "w")) == NULL){
+  if(argc<4 || (fo = fopen(argv[3], "w")) == NULL){
     fo = stdout;
   }
 
@@ -45,6 +45,7 @@ int main(int argc, char * argv[]){
   if(!fm){
     free(urelconst);
     free(bas);
+    fclose(fo);
     fprintf(stderr, "\tmol?\n");
     return 1;
   }
@@ -123,6 +124,9 @@ int main(int argc, char * argv[]){
     double * F = C + M*M;
 
     init_lb20_heff(M, F, H, m, ao, al, btype, bas, boys_array);
+#if 0
+    mx_nosym_print(M, F, stdout);
+#endif
 #if 0
     oneint_print(M, S, F);
 #endif

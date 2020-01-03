@@ -34,7 +34,7 @@ typedef struct{
   double * c;             /* coefficients                            */
 } basis_gc;
 
-int count_primitives_gc(basis_gc * bas, int k, int ll);
+int count_primitives_gc(basis_gc * bas, int ll, int j);
 void bas_print_gc2gen(basis_gc * bas, const char s[], FILE * f);
 void basel_print_gc2gen(int n, basis_gc * bas, int c, const char s[], FILE * f);
 
@@ -79,13 +79,11 @@ double int_s00(int l, double a);
 void int_ij(mol * m, atomo * ao1, atomo * ao2, double * S, double * H, double * Dxyz, int finite_nuclei, atomo * u_rel, double * boys_array);
 double int_ij_overlap_self(atomo * ao);
 double int_ij0_sum(mol * m, atomo * aoi, atomo * aoj, atomo * aoqs, double * boys_array);
-double int_ij0_sum2(mol * m, int mypar, int atpar[], atomo * aoi, atomo * aoj, atomo * aoqs, double * boys_array);
 double int_ij0_sum_grad(mol * m, int mypar, int atpar[], atomo * aoi, atomo * aoj, atomo * aoqs, double * boys_array);
 
 int elnumber(mol * m);
 int corepairs_simple(mol * m);
 
-void D_fill  (int N, int M, double * C, double * D, unsigned int w);
 void F_restore(int M, double * F, double * S, double * V, double * C);
 void MO_proj(int m, int M, double * P, double * S, double * C);
 int  C_maxoverlap(int n, int n1, int M, double * Asym, double * C, double * C0, double * S);
@@ -101,12 +99,9 @@ void atcv_prep();
 void atcv_fill(atomo * ao, mol * m);
 void atcv_nozzle_fill_all(atomo * ao, int * atpar, double * a, double * w, mol * m);
 void atcv_nozzle_fill_all1(atomo * ao, double * a, double * w, mol * m);
-void atcv_nozzle_fill_all2(atomo * ao, double * a, double * w, mol * m);
 void charge1_norm(double * a, double * w);
 void atcv_ij_add(mol * m, int M, double * H, atomo * ao, atomo * aox, double * boys_array);
-void atcv_ij_add2(mol * m, int M, double * Hs, int npar, int atpar[], atomo * ao, atomo * aox, double * boys_array);
 void atcv_ij_add_grad(mol * m, int M, double * Gs, int npar, int atpar[], atomo * ao, atomo * aox, double * boys_array);
 void atcv_ij_add_gc(mol * m, int M, double * Hs, int atpar[], basis_gc * bas, atomo * ao, int * al, atomo * aox, double * boys_array);
-void atcv_ij_add_gc_grad(mol * m, int M, double * Hs, double * Gs, int atpar[], basis_gc * bas, atomo * ao, int * al, atomo * aox, double * boys_array);
-void atcv_ij_add_gc_peratom(mol * m, int M, double * Hs, basis_gc * bas, atomo * ao, int * al, atomo * aox, double * boys_array);
+void atcv_ij_add_gc_grad(mol * m, int M, double * H, double * Gs, int atpar[], basis_gc * bas, atomo * ao, int * al, atomo * aox, double * boys_array);
 
