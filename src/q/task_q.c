@@ -59,12 +59,7 @@ taskstr task_q_init(theory_t theory, void * urelconst, char * fbname, char * fna
   task.control.aaar = !!urelconst;
   strcpy(task.control.basis, fbname);
 
-  strncpy(task.control.vectors, fname, sizeof(task.control.vectors)-1);
-  remove_in(task.control.vectors);
-  if( strlen(task.control.vectors) + sizeof(".vec") > sizeof(task.control.vectors) ){
-    GOTOHELL;
-  }
-  strcat(task.control.vectors, ".vec");
+  change_suffix(task.control.vectors, fname, ".vec", sizeof(task.control.vectors));
 
   return task;
 }
@@ -93,11 +88,26 @@ theory_t task_q_proc(taskstr * task){
   return f;
 }
 
-void remove_in(char * fname){
+static inline void remove_in(char * fname){
   int t = strlen(fname) - 1;
   if(fname[t]=='n' && t-1>=0 && fname[t-1]=='i' && t-2>=0 && fname[t-2]=='.'){
     fname[t] = fname[t-1] = fname[t-2] = '\0';
   }
+  return;
+}
+
+static inline void add_suffix(char * fname, const char * suf, size_t size){
+  if(strlen(fname) + strlen(suf) >= size){
+    GOTOHELL;
+  }
+  strcat(fname, suf);
+  return;
+}
+
+void change_suffix(char * newname, const char * name, const char * suf, size_t size){
+  strncpy(newname, name, size-1);
+  remove_in(newname);
+  add_suffix(newname, suf, size);
   return;
 }
 

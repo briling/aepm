@@ -1,6 +1,8 @@
 #include "q.h"
 #include "boys.h"
+
 #define EPS 1e-15
+#define STRLEN 256
 
   /*  assumptions:
    *  1.  there is only one set in the file
@@ -237,8 +239,8 @@ void bas_print(void * bas, basis_type btype, const char s[], FILE * f){
   return;
 }
 
-static long findbasis(char type[256], FILE * fb){
-  char s[256];
+static long findbasis(char type[STRLEN], FILE * fb){
+  char s[STRLEN];
   while (1){
     if (!fgets(s, sizeof(s), fb)) {
       return -1;
@@ -258,7 +260,7 @@ static long findbasis(char type[256], FILE * fb){
 
 static int bas_read_gen(FILE * fb, basis * bas, int * Nsto, int * Ng){
 
-  char   s[256];
+  char   s[STRLEN];
   int    n,nm,l,lm;
   double a,w;
 
@@ -326,7 +328,7 @@ hell:
 
 static int bas_read_gc(FILE * fb, basis_gc * bas, int * Sum_l, int * Sum_p, int * Sum_c){
 
-  char   s[256];
+  char   s[STRLEN];
 
   int sum_l = 0;
   int sum_p = 0;
@@ -410,7 +412,7 @@ hell:
 
 void * bas_read(FILE * fb, basis_type * btype){
 
-  char type[256] = {};
+  char type[STRLEN] = {};
   rewind(fb);
   long bstart = findbasis(type, fb);
 

@@ -1,5 +1,7 @@
 #include "q.h"
 
+#define STRLEN 256
+
 atomo * u_rel_fill(mol * m, urelconst_t * urelconst){
   atomo * u_rel = malloc(sizeof(atomo)*m->n);
   for(int k=0; k<m->n; k++){
@@ -16,7 +18,7 @@ atomo * u_rel_fill(mol * m, urelconst_t * urelconst){
 }
 
 static long findkinetic(FILE * fb){
-  char s[256];
+  char s[STRLEN];
   while (1){
     if (!fgets(s, sizeof(s), fb)) {
       return -1;
@@ -30,7 +32,7 @@ static long findkinetic(FILE * fb){
 
 static int kinetic_read(urelconst_t * urel, FILE * fb){
 
-  char   s[256];
+  char   s[STRLEN];
   double a, w;
   int q, nq, n = 0;
 

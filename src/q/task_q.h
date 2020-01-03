@@ -27,5 +27,5 @@ void     task_q_read  (FILE * f, taskstr * task);
 void     task_q_print (FILE * f, taskstr * task);
 theory_t task_q_proc  (taskstr * task);
 
-void remove_in(char * fname);
+void change_suffix(char * newname, const char * name, const char * suf, size_t size);
 

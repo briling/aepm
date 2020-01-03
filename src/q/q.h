@@ -9,8 +9,10 @@ typedef enum {BASIS_TYPE_GENERAL, BASIS_TYPE_GC} basis_type;
 void * bas_read(FILE * fb, basis_type * btype);
 void bas_print(void * bas, basis_type btype, const char s[], FILE *f);
 
+#define BASIS_NAME_LEN 64
+
 typedef struct{
-  char name[64];
+  char name[BASIS_NAME_LEN];
   int  lsto[NELEMENTS+1]; /* list: element -> basis functions   */
   int    *  lgto;         /* list: basis function -> primitive  */
   int    *  l;            /* angular momenta                    */
@@ -21,7 +23,7 @@ typedef struct{
 void basel_print_gen(int n, basis * bas, int c, const char s[], FILE *f);
 
 typedef struct{
-  char name[64];
+  char name[BASIS_NAME_LEN];
   int  ll[NELEMENTS+1];   /* list: element -> angular momenta        */
   int * l;                /* angular momenta                         */
   int * np;               /* number of primitives                    */

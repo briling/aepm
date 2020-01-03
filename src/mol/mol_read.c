@@ -3,6 +3,7 @@
 
 #define N 2
 #define C 8
+#define STRLEN 256
 
 #define END(S,X) ( (S)->X + (X##_size)/sizeof(*((S)->X)) )
 
@@ -121,7 +122,7 @@ mol * mol_read(FILE * f){
   const double rd = M_PI/180.0;
   mol  * m;
   double r[3];
-  char   s[256];
+  char   s[STRLEN];
   char   ch, af, zcf;
   styp   t;
   int    q, n,c, a,b, z,mult;
