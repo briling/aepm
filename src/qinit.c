@@ -62,12 +62,13 @@ int main(int argc, char * argv[]){
 
   if(argc<3){
     printf("  usage:\n\
-        %s basis.in list.in [out] [arguments]\n", argv[0]);
-    printf("  command-line arguments:\n\
-        np:%%d       -- number of threads (if compiled)\n\
+        %s basis.in list.in [out] [options]\n", argv[0]);
+    printf("  command-line options:\n\
+        np:%%d       -- number of threads\n\
         f:%%s        -- measure\n\
         save:%%d     -- save guesses after optimization\n\
         check:%%d    -- check the measure on molecules (1 -- atcv+cap, 2 -- at0cv)\n\
+        testgrad:%%d -- test gradient\n\
         clust:%%d    -- group molecules wrt parameters\n\
         o:%%d,%%lf    -- optimization parameters (K,MG)\n\
         o1:%%d,%%lf,%%lf,%%lf,%%lf -- 1d optimization parameters (K,G,h,D,H)\n\
@@ -76,10 +77,11 @@ int main(int argc, char * argv[]){
   }
 
   FILE * fo = stdout;
-  int check   = 0;
-  int clust   = 0;
-  int save    = 0;
-  int measure = MEASURE;
+  int check    = 0;
+  int clust    = 0;
+  int save     = 0;
+  int testgrad = 0;
+  int measure  = MEASURE;
   char measure_s[256] = {};
   ostr op = {
     .MG = 1e-5,  .K = 128,
@@ -89,11 +91,12 @@ int main(int argc, char * argv[]){
     }
   };
   for(int i=3; i<argc; i++){
-    if( sscanf (argv[i], "np:%d",      &nproc) ) { continue; }
-    if( sscanf (argv[i], "f:%s",    measure_s) ) { continue; }
-    if( sscanf (argv[i], "save:%d",     &save) ) { continue; }
-    if( sscanf (argv[i], "check:%d",   &check) ) { continue; }
-    if( sscanf (argv[i], "clust:%d",   &clust) ) { continue; }
+    if( sscanf (argv[i], "np:%d",           &nproc) ) { continue; }
+    if( sscanf (argv[i], "f:%s",         measure_s) ) { continue; }
+    if( sscanf (argv[i], "save:%d",          &save) ) { continue; }
+    if( sscanf (argv[i], "check:%d",        &check) ) { continue; }
+    if( sscanf (argv[i], "clust:%d",        &clust) ) { continue; }
+    if( sscanf (argv[i], "testgrad:%d",  &testgrad) ) { continue; }
     if( sscanf (argv[i], "o:%d,%lf", &op.K, &op.MG) ) { continue; }
     if( sscanf (argv[i], "o1:%d,%lf,%lf,%lf,%lf", &op.o1dpars.K, &op.o1dpars.G, &op.o1dpars.h, &op.o1dpars.D, &op.o1dpars.H ) ) { continue; }
     if(! (fo = fopen(argv[i], "w"))){
@@ -256,10 +259,10 @@ int main(int argc, char * argv[]){
     goto hell;
   }
 
-#if 0
-  test_grad_a(nmol, npar, md, atpar, a, w, btype, bas, boys_array);
-  goto hell;
-#endif
+  if(testgrad){
+    test_grad_a(nmol, npar, md, atpar, a, w, btype, bas, boys_array);
+    goto hell;
+  }
 
   fprintf(fo, "o:%d,%e\n", op.K, op.MG);
   fprintf(fo, "o1:%d,%e,%e,%e,%e\n", op.o1dpars.K, op.o1dpars.G, op.o1dpars.h, op.o1dpars.D, op.o1dpars.H );
