@@ -4,79 +4,35 @@
 
 void task_q_print(FILE * f, taskstr * task){
   fprintf(f, "#control\n");
-  printkey(f,  control, theory);
   printkey(f,  control, vectors);
-  if(task->control.aaar){
-    printkey(f,  control, aaar);
-  }
-  if(task->control.aaar || task->control.finite_nuclei){
-    printkey(f,  control, finite_nuclei);
-  }
+  printkey(f,  control, aaar);
+  printkey(f,  control, finite_nuclei);
   printkey(f,  control, basis);
   fprintf(f, "#\n");
-}
-
-static void tread(FILE * f, taskstr * task, char * s){
-  filename str;
-  char * key;
-  char * val;
-  if (! strcmp(s, "#control")){
-    while(fgets(str, sizeof(str), f)) {
-      tokens(key, val, str);
-      iskey(key, val, control, theory);
-      iskey(key, val, control, finite_nuclei);
-      iskey(key, val, control, aaar);
-      iskey(key, val, control, vectors);
-    }
-  }
   return;
 }
 
-void task_q_read(FILE * f, taskstr * task){
-
-  filename s;
-
-  while(fgets(s, sizeof(s), f)) {
-    if(s[0]=='\n'){
-      continue;
-    }
-    s[strnlen(s, sizeof(s))-1] = '\0';
-    char * p = strchr(s, '#');
-    if(p && p[1]){
-      tread(f, task, p);
-    }
-  }
-  return;
-}
-
-taskstr task_q_init(theory_t theory, void * urelconst, char * fbname, char * fname){
-
+taskstr task_q_init(char * fbname, char * fname){
   taskstr task = {};
-
-  strcpy(task.control.theory, theory_s[theory]);
   task.control.finite_nuclei = -1;
-  task.control.aaar = !!urelconst;
+  task.control.aaar          = -1;
   strcpy(task.control.basis, fbname);
-
   change_suffix(task.control.vectors, fname, ".vec", sizeof(task.control.vectors));
-
   return task;
 }
 
-theory_t task_q_proc(taskstr * task){
-  str_toupper(task->control.theory);
-  int nth = sizeof(theory_s)/sizeof(theory_s[0]);
-  int f   = 0;
-  for(int i=0; i<nth; i++){
-    if(!strcmp(task->control.theory, theory_s[i])){
-      f = i;
-      break;
-    }
+void task_q_proc(taskstr * task, void * urelconst){
+  if(task->control.aaar==1 && !urelconst){
+    PRINT_WARN("Cannot use aaar without parameters\n");
+    task->control.aaar = 0;
   }
-  if(task->control.finite_nuclei<0){ // unspecified
+  else if(task->control.aaar<0){
+    task->control.aaar = !!urelconst;
+  }
+  if(task->control.finite_nuclei<0){
     task->control.finite_nuclei = !!(task->control.aaar);
   }
-  return f;
+  return;
 }
 
 static inline void remove_in(char * fname){
