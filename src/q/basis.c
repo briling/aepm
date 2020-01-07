@@ -222,7 +222,7 @@ static int bas_read_gen(FILE * fb, basis * bas, int * Nsto, int * Ng){
 
   while(fscanf(fb, "%d%d", &n, &nm) == 2){ /* element , number of functions */
     if(n > NELEMENTS){
-      fprintf(stderr, " N=%d > %d=Nmax!\n", n, NELEMENTS);
+      PRINT_WARN(" N=%d > %d=Nmax!\n", n, NELEMENTS);
       goto hell;
     }
     if(bas){
@@ -236,7 +236,7 @@ static int bas_read_gen(FILE * fb, basis * bas, int * Nsto, int * Ng){
         goto hell;
       }
       if(l>L_MAX){
-        fprintf(stderr, " L=%d > %d=Lmax!\n", l, L_MAX);
+        PRINT_WARN(" L=%d > %d=Lmax!\n", l, L_MAX);
         goto hell;
       }
       if(bas){
@@ -292,11 +292,11 @@ static int bas_read_gc(FILE * fb, basis_gc * bas, int * Sum_l, int * Sum_p, int 
 
   while(fscanf(fb, "%d%d", &n, &lmax) == 2){ /* element , max angular momentum */
     if(n > NELEMENTS){
-      fprintf(stderr, " N=%d > %d=Nmax!\n", n, NELEMENTS);
+      PRINT_WARN(" N=%d > %d=Nmax!\n", n, NELEMENTS);
       goto hell;
     }
     if(lmax>L_MAX){
-      fprintf(stderr, " L=%d > %d=Lmax!\n", lmax, L_MAX);
+      PRINT_WARN(" L=%d > %d=Lmax!\n", lmax, L_MAX);
       goto hell;
     }
 

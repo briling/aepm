@@ -7,7 +7,7 @@ int elnumber(mol * m){
     N += m->q[i];
   }
   if(N<=0){
-    fprintf(stderr, "\tN = %d ?\n", N);
+    PRINT_ERR("\tN = %d ?\n", N);
     exit(1);
   }
   return N;

@@ -8,7 +8,7 @@ int mol_init(mol_data * md, basis_type btype, void * bas, char * fname){
   FILE * fm = fopen(fname, "r");
 
   if( !fm || !(m = mol_read(fm)) ){
-    fprintf(stderr, "\tmol?!\n");
+    PRINT_WARN("\tmol?!\n");
     return 1;
   }
   fclose(fm);
@@ -17,15 +17,15 @@ int mol_init(mol_data * md, basis_type btype, void * bas, char * fname){
   int N = elnumber(m);
   int core = corepairs_simple(m);
   if( m->mult-1 || N%2 ) {
-    fprintf(stderr, "\tN = %d, mult = %d !\n", N, m->mult);
+    PRINT_WARN("\tN = %d, mult = %d !\n", N, m->mult);
     return 1;
   }
   if( N/2 > M) {
-    fprintf(stderr, "\tN = %d, M = %d !\n", N, M);
+    PRINT_WARN("\tN = %d, M = %d !\n", N, M);
     return 1;
   }
   if(core>N/2){
-    fprintf(stderr, "\tN = %d, core = %d !\n", N, core);
+    PRINT_WARN("\tN = %d, core = %d !\n", N, core);
     return 1;
   }
 

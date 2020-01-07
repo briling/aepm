@@ -10,7 +10,7 @@ int main(int argc, char * argv[]){
   FILE * fb;
   fb = fopen(argv[1], "r");
   if(!fb){
-    fprintf(stderr, "\tbasis?\n");
+    PRINT_ERR("\tbasis?\n");
     return 1;
   }
 
@@ -19,8 +19,8 @@ int main(int argc, char * argv[]){
   void * bas = bas_read(fb, &btype);
   fclose(fb);
   if(!bas){
-    fprintf(stderr, "\tbasis!\n");
     free(urelconst);
+    PRINT_ERR("\tbasis!\n");
     return 1;
   }
 
@@ -30,7 +30,7 @@ int main(int argc, char * argv[]){
   if(!fm){
     free(urelconst);
     free(bas);
-    fprintf(stderr, "\tmol?\n");
+    PRINT_ERR("\tmolecule?\n");
     return 1;
   }
 
@@ -39,7 +39,7 @@ int main(int argc, char * argv[]){
   if(!m){
     free(urelconst);
     free(bas);
-    fprintf(stderr, "\tmol!\n");
+    PRINT_ERR("\tmolecule!\n");
     return 1;
   }
 
@@ -83,11 +83,11 @@ int main(int argc, char * argv[]){
   int Nb = (N-Nu)/2;
   int Na = N-Nb;
   if( (N-Nu)%2 ) {
-    fprintf(stderr, "\tN = %d, mult = %d !\n", N, m->mult);
+    PRINT_ERR("\tN = %d, mult = %d !\n", N, m->mult);
     return 1;
   }
   if( Na > M) {
-    fprintf(stderr, "\tN = %d, M = %d !\n", Na, M);
+    PRINT_ERR("\tN = %d, M = %d !\n", Na, M);
     return 1;
   }
   fprintf(fo, "N = %d (%d + %d)\n", N, Na, Nb);

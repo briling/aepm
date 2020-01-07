@@ -119,7 +119,7 @@ int main(int argc, char * argv[]){
   fb = fopen(argv[1], "r");
   if(!fb){
     free(boys_array);
-    fprintf(stderr, "\tbasis?\n");
+    PRINT_ERR("\tbasis?\n");
     return 1;
   }
 
@@ -133,10 +133,10 @@ int main(int argc, char * argv[]){
   void * bas = bas_read(fb, &btype);
   fclose(fb);
   if(!bas){
-    fprintf(stderr, "\tbasis!\n");
     free(urelconst);
     free(boys_array);
     fclose(fo);
+    PRINT_ERR("\tbasis!\n");
     return 1;
   }
 #if 0
@@ -149,7 +149,7 @@ int main(int argc, char * argv[]){
     free(urelconst);
     free(bas);
     free(boys_array);
-    fprintf(stderr, "\tlist?\n");
+    PRINT_ERR("\tlist?\n");
     return 1;
   }
 
@@ -165,13 +165,14 @@ int main(int argc, char * argv[]){
   char ** fnames0  = fnames;
   fclose(fl);
 
-//------------------------------------------------------
+  /********************************************************/
 
   mol_data * md = malloc(sizeof(mol_data)*nmol);
 
   for(int i=0; i<nmol; i++){
     if(mol_init(md+i, btype, bas, fnames[i])){
       fprintf(fo, "(%d) %s\n", i, fnames[i]);
+      PRINT_ERR("(%d) %s\n", i, fnames[i]);
       GOTOHELL;
     }
   }

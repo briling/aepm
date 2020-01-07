@@ -6,7 +6,7 @@ static int ao_fill_gen(mol * m, basis * bas, atomo * ao){
     int q = m->q[k];
     int n = bas->lsto[q]-bas->lsto[q-1];
     if(!n){
-      fprintf(stderr, " no basis functions for %d !\n", q);
+      PRINT_ERR(" no basis functions for %d !\n", q);
       GOTOHELL;
     }
     for(int i=bas->lsto[q-1]; i<bas->lsto[q]; i++){
@@ -33,7 +33,7 @@ static int ao_fill_gc(mol * m, basis_gc * bas, atomo * ao){
     int q = m->q[k];
     int n = bas->ll[q]-bas->ll[q-1];
     if(!n){
-      fprintf(stderr, " no basis functions for %d !\n", q);
+      PRINT_ERR(" no basis functions for %d !\n", q);
       GOTOHELL;
     }
     for(int ll=bas->ll[q-1]; ll<bas->ll[q]; ll++){
