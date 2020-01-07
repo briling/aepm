@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 #include "task_q.h"
 
 int mol_init(mol_data * md, basis_type btype, void * bas, char * fname){

@@ -127,7 +127,7 @@ static inline double calc_grad_measure(int measure, int npar,
   }
 }
 
-static inline void nozzle(mol_data * md, double * F,
+static inline void cap(mol_data * md, double * F,
     basis_type btype, basis_gc * bas, double * boys_array){
   if(btype == BASIS_TYPE_GC){
     atcv_ij_add_gc(md->m, md->M, F, NULL, bas, md->ao, md->al, md->aox, boys_array);
@@ -138,7 +138,7 @@ static inline void nozzle(mol_data * md, double * F,
   return;
 }
 
-static inline void nozzle_gradient(
+static inline void cap_gradient(
     int npar, mol_data * md, double * F, double * Gs, int atpar[],
     basis_type btype, basis_gc * bas, double * boys_array){
   if(btype == BASIS_TYPE_GC){

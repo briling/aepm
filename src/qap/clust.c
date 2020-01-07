@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 void mols_clusterize(int npar, int nmol,
     mol_data * md, char ** fnames, FILE * fo){

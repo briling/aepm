@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 void Hmod_only_solve(mol_data * md, double * V, double * C, double * F){
   int M = md->M;

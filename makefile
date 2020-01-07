@@ -28,7 +28,7 @@ W= -Wall -Wextra \
 STDFLAG= -std=gnu11   # -std=gnu99 can be used
 CFLAGS= -c $(STDFLAG) -MMD $(OPT) $(GPROF) $(W) $(GDB) $(ASM)
 OFLAGS= -lm $(GPROF)
-INCL= -I$(SRCDIR)/mol -I$(SRCDIR)/math -I$(SRCDIR)/q -I$(SRCDIR)/qinit
+INCL= -I$(SRCDIR)/mol -I$(SRCDIR)/math -I$(SRCDIR)/q -I$(SRCDIR)/qap
 
 
 OBJDIR=./obj
@@ -43,22 +43,22 @@ mathobj=$(mathsrc:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 qsrc=$(wildcard $(SRCDIR)/q/*.c)
 qobj=$(qsrc:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
-qinitsrc=$(wildcard $(SRCDIR)/qinit/*.c)
-qinitobj=$(qinitsrc:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+qapsrc=$(wildcard $(SRCDIR)/qap/*.c)
+qapobj=$(qapsrc:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 
-all : q qinit
+all : q qap
 
 q : $(molobj) $(mathobj) $(qobj) $(OBJDIR)/q.o
 	$(CC) $^ -o $@ $(OFLAGS)
-qinit : $(molobj) $(mathobj) $(qobj) $(qinitobj) $(OBJDIR)/qinit.o
+qap : $(molobj) $(mathobj) $(qobj) $(qapobj) $(OBJDIR)/qap.o
 	$(CC) $^ -o $@ $(OFLAGS) -lpthread
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $< -o $@ $(INCL)
 
 clean :
-	rm -f $(OBJDIR)/*/*.o $(OBJDIR)/*.o q qinit
+	rm -f $(OBJDIR)/*/*.o $(OBJDIR)/*.o q qap
 cleand :
 	rm -f $(OBJDIR)/*/*.d $(OBJDIR)/*.d
 

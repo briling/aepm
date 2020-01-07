@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 #include <pthread.h>
 
 extern int nproc;

@@ -1061,7 +1061,7 @@ void atcv_fill(atomo * ao, mol * m){
   return;
 }
 
-void atcv_nozzle_fill_all(atomo * ao, int * atpar, double * a, double * w, mol * m){
+void atcv_cap_fill_all(atomo * ao, int * atpar, double * a, double * w, mol * m){
   for(int k=0; k<m->n; k++){
     int q = m->q[k];
     if(atpar[q]>=0){
@@ -1084,7 +1084,7 @@ void atcv_nozzle_fill_all(atomo * ao, int * atpar, double * a, double * w, mol *
   return;
 }
 
-void atcv_nozzle_fill_all1(atomo * ao, double * a, double * w, mol * m){
+void atcv_cap_fill_all1(atomo * ao, double * a, double * w, mol * m){
   for(int k=0; k<m->n; k++){
     int q = m->q[k];
     ao[k].l  = 0;

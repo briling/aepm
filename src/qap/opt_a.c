@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 static double opt1d(int npar, double * p,
     double * a, double * weigth, thread_arg * ta,

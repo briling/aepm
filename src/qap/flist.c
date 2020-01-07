@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 char ** flist_read(int * nlines, FILE * fl){
 

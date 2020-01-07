@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 static void regression(int nmol, mol_data * md,
     double * f1, double * f6, FILE * fo){
@@ -115,7 +115,7 @@ void mols_check(int nmol, mol_data * md,
     veccp(symsize(M), F, md[i].H);
 
     if(check==1){
-      nozzle(md+i, F, btype, bas, boys_array);
+      cap(md+i, F, btype, bas, boys_array);
     }
 
 #if 0

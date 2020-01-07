@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 static void calc_gradient_mol_num(int measure, int npar,
     double * g, mol_data * md, double * a, double * w,
@@ -17,7 +17,7 @@ static void calc_gradient_mol_num(int measure, int npar,
       a[k] = a0 + i*d;
       charge1_norm(a+k, w+k);
       veccp(symsize(M), F, md->H);
-      nozzle(md, F, btype, bas, boys_array);
+      cap(md, F, btype, bas, boys_array);
       Hmod_only_solve(md, V, C, F);
       g[k] += calc_only_measure(measure, C, md) * i;
     }

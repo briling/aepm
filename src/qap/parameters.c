@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 int pars_read(double a0[NATOMS], int bp[NATOMS], int fixflag[NATOMS], FILE * fl){
   double ta;

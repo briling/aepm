@@ -48,7 +48,7 @@ void init_lb20_heff(int M, double * F,
   for(int i=1; i<=NELEMENTS; i++){
     charge1_norm(a+i, w+i);
   }
-  atcv_nozzle_fill_all1(aox, a, w, m);
+  atcv_cap_fill_all1(aox, a, w, m);
   mol_atcv_ij_add(M, F, m, ao, al, aox, btype, bas, boys_array);
 
   free(aox);

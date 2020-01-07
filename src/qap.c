@@ -1,6 +1,6 @@
 #include "q.h"
 #include "task_q.h"
-#include "qinit.h"
+#include "qap.h"
 #include <stddef.h>
 #include <pthread.h>
 #include "mytime.h"
@@ -14,7 +14,7 @@ static void add_fixed(int nmol, int nproc,
     mol_data * md, int fatpar[], double * fa, double * fw,
     thread_arg * args){
   for(int i=0; i<nmol; i++){
-    atcv_nozzle_fill_all(md[i].aox, fatpar, fa, fw, md[i].m);
+    atcv_cap_fill_all(md[i].aox, fatpar, fa, fw, md[i].m);
   }
   for(int i=0; i<nproc; i++){
     pthread_create(threads+i, NULL, mol_atcv_ll, args+i);
@@ -251,7 +251,7 @@ int main(int argc, char * argv[]){
   read_solution(nproc, fnames, args, fo);
 
   for(int i=0; i<nmol; i++){
-    atcv_nozzle_fill_all(md[i].aox, atpar, a, w, md[i].m);
+    atcv_cap_fill_all(md[i].aox, atpar, a, w, md[i].m);
   }
 
   if(check){

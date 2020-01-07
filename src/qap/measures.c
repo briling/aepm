@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 int measure_ortho(int N, int M, int core,
     double * S, double * C0, double * C){

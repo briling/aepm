@@ -1,6 +1,6 @@
 #include <pthread.h>
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 
 int mol2proc(int nproc, int nmol, pthread_t ** threads, thread_arg ** args, mol_data * md){
   if(nproc > nmol){
@@ -20,7 +20,7 @@ int mol2proc(int nproc, int nmol, pthread_t ** threads, thread_arg ** args, mol_
 void * mol_atcv_ll(void * arg){
   thread_arg * ta = arg;
   for(int i=0; i<ta->nmol; i++){
-    nozzle(ta->md+i, ta->md[i].H, ta->btype, ta->bas, ta->boys_array);
+    cap(ta->md+i, ta->md[i].H, ta->btype, ta->bas, ta->boys_array);
   }
   return NULL;
 }

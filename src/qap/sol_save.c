@@ -1,5 +1,5 @@
 #include "q.h"
-#include "qinit.h"
+#include "qap.h"
 #include "task_q.h"
 
 void sol_save(mol_data * md, const char fname[],
@@ -10,7 +10,7 @@ void sol_save(mol_data * md, const char fname[],
   double * C = V + M;
   double * F = C + M*M;
   veccp(symsize(M), F, md->H);
-  nozzle(md, F, btype, bas, boys_array);
+  cap(md, F, btype, bas, boys_array);
   veccp(M*M, C, md->X0);
   mx_BHBt_sym(M, F, C);
   jacobi(F, C, V, M, 1e-15, 20, NULL);
