@@ -35,7 +35,6 @@ typedef struct{
 } basis_gc;
 
 int count_primitives_gc(basis_gc * bas, int ll, int j);
-void bas_print_gc2gen(basis_gc * bas, const char s[], FILE * f);
 void basel_print_gc2gen(int n, basis_gc * bas, int c, const char s[], FILE * f);
 
 typedef struct{
@@ -84,14 +83,19 @@ double int_ij0_sum_grad(mol * m, int mypar, int atpar[], atomo * aoi, atomo * ao
 int elnumber(mol * m);
 int corepairs_simple(mol * m);
 
+void D_fill(int N, int M, double * C, double * D, unsigned int w);
 void F_restore(int M, double * F, double * S, double * V, double * C);
 void MO_proj(int m, int M, double * P, double * S, double * C);
 int  C_maxoverlap(int n, int n1, int M, double * Asym, double * C, double * C0, double * S);
 
 void init_lb20_heff(int M, double * F, double * H, mol * m, atomo * ao, int * al, basis_type btype, void * bas, double * boys_array);
 
+void vec_to_p(unsigned int n, atomo * ao, double * Ct, double * C);
+int qvec_write(int M, double * Va, double * Ca, double * Vb, double * Cb, const char s[]);
 int pvec_write(int M, atomo * ao, double * Va, double * Ca, double * Vb, double * Cb, const char s[]);
 int pvec_read (int M, atomo * ao, double * Va, double * Ca, double * Vb, double * Cb, const char s[]);
+
+void molden_print(int N, int M, int occ, mol * m, atomo * ao, void * bas, basis_type btype, double * C, double * V, const char spin[], const char ps[], FILE * fo);
 
 void at0cv_prep();
 void at0cv_fill(atomo * ao, mol * m);

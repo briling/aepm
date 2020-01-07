@@ -16,6 +16,7 @@ static inline unsigned int mpos(unsigned int i, unsigned int j){
 
 void     mx_id            (unsigned int n, double * a);
 void     mx_print         (unsigned int n, double * a, FILE * f);
+void     mx_sym_print     (unsigned int n, double * a, FILE * f);
 void     mx_nosym_print   (unsigned int n, double * a, FILE * f);
 void     mx_transp        (unsigned int n, double * a);
 void     mx_symmultrectmx (unsigned int n, unsigned int m, double * p, double * a, double * b);

@@ -39,7 +39,7 @@ static inline int M1(int n){
   return (n%2) ? (n+1)/2 : -(n+1)/2;
 }
 
-static void vec_to_p(unsigned int n, atomo * ao, double * Ct, double * C){
+void vec_to_p(unsigned int n, atomo * ao, double * Ct, double * C){
   mx_transp(n, C);
   for(unsigned int i=0; i<n; i++){
     int l  = ao[i].l;
@@ -129,6 +129,28 @@ int pvec_write(int M, atomo * ao, double * Va, double * Ca, double * Vb, double 
 
   free(Cta);
   free(Ctb);
+
+  fclose(f);
+  return 1;
+}
+
+int qvec_write(int M, double * Va, double * Ca, double * Vb, double * Cb, const char s[]){
+
+  FILE * f;
+  if( !(f = fopen(s, "w"))){
+    return 0;
+  }
+
+  int32_t n = M;
+  size_t vsize = sizeof(double)*n;
+  size_t csize = sizeof(double)*n*n;
+
+  if( !fwrite(&n, sizeof(n), 1, f) ||
+      !fwrite(Va, vsize, 1, f) || !fwrite(Ca, csize, 1, f) ||
+      !fwrite(Vb, vsize, 1, f) || !fwrite(Cb, csize, 1, f) ){
+    fclose(f);
+    return 0;
+  }
 
   fclose(f);
   return 1;

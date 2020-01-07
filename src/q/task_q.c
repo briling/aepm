@@ -7,6 +7,7 @@ void task_q_print(FILE * f, taskstr * task){
   printkey(f,  control, vectors);
   printkey(f,  control, aaar);
   printkey(f,  control, finite_nuclei);
+  printkey(f,  control, print);
   printkey(f,  control, basis);
   fprintf(f, "#\n");
   return;

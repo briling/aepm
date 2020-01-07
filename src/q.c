@@ -121,21 +121,35 @@ int main(int argc, char * argv[]){
   double * F = C + M*M;
   init_lb20_heff(M, F, H, m, ao, al, btype, bas, boys_array);
 #if 0
-  mx_nosym_print(M, F, stdout);
-#endif
-#if 0
   oneint_print(M, S, F);
 #endif
   veccp(M*M, C, X);
   mx_BHBt_sym(M, F, C);
   jacobi(F, C, V, M, 1e-15, 20, NULL);
   eigensort(M, V, C);
-  if(pvec_write(M, ao, V, C, V, C, task.control.vectors)){
+
+  double * C1 = malloc(M*M*sizeof(double));
+  vec_to_p(M, ao, C1, C);
+  if(qvec_write(M, V, C1, V, C1, task.control.vectors)){
     fprintf(fo, "\nwrite coefficients to '%s'\n\n", task.control.vectors);
   }
   else{
     fprintf(fo, "\nfailed to write coefficients to '%s'\n", task.control.vectors);
   }
+
+  if(task.control.print){
+    double * D1 = malloc(symsize(M)*sizeof(double));
+    D_fill(N, M, C1, D1, 2);
+    switch(task.control.print){
+      case 1: mx_nosym_print(M, D1, fo); break;
+      case 2: mx_sym_print  (M, D1, fo); break;
+      case 3: mx_print      (M, C1, fo); break;
+      case 4: molden_print(N/2, M, 2, m, ao, bas, btype, C, V, "Alpha", "mos>", fo); break;
+    }
+    free(D1);
+  }
+  free(C1);
+
   free(V);
 
   /********************************************************/

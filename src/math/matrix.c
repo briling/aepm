@@ -10,7 +10,7 @@ void mx_id(unsigned int n, double * a){
   return;
 }
 
-void mx_print(unsigned int n, double * a, FILE   * f){
+void mx_print(unsigned int n, double * a, FILE * f){
   unsigned int i,j;
   for(i=0; i<n; i++){
     for(j=0; j<n; j++){
@@ -23,7 +23,21 @@ void mx_print(unsigned int n, double * a, FILE   * f){
   return;
 }
 
-void mx_nosym_print(unsigned int n, double * a, FILE   * f){
+void mx_sym_print(unsigned int n, double * a, FILE * f){
+  unsigned int i,N;
+  N = symsize(n);
+  for (i=0; i<N; i++){
+    fprintf(f,"% .8e\t", a[i]);
+    if (!((i+1) % 6)){
+      fprintf(f,"\n");
+    }
+  }
+  fprintf(f,"\n\n");
+  fflush(f);
+  return;
+}
+
+void mx_nosym_print(unsigned int n, double * a, FILE * f){
   unsigned int i,j;
   for(i=0; i<n; i++){
     for(j=0; j<=i; j++){

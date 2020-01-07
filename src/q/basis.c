@@ -131,6 +131,35 @@ int count_primitives_gc(basis_gc * bas, int ll, int j __attribute__ ((unused))){
 #endif
 }
 
+void basel_print_gc2gen(int n, basis_gc * bas, int c, const char s[], FILE * f){
+  for(int ll=bas->ll[n-1]; ll<bas->ll[n]; ll++){
+    int l = bas->l[ll];
+
+    for(int j=0; j<bas->nc[ll]; j++){
+      int np = count_primitives_gc(bas, ll, j);
+      if(c){
+        fprintf(f, "%s %c %2d\n",  s, shellname[l], np);
+      }
+      else{
+        fprintf(f, "%s%1d %2d\n", s, l, np);
+      }
+      for(int i=bas->lp[ll]; i<bas->lp[ll+1]; i++){
+        double c = bas->c[
+          +bas->lc[ll]
+          +bas->np[ll]*j
+          +(i-bas->lp[ll])
+          ];
+        if(fabs(c)>EPS){
+          double a  = bas->a[i];
+          double s2 = int_s00(l, a);
+          fprintf(f, "%s %.10e % .10e\n", s, a, c*sqrt(s2));
+        }
+      }
+    }
+  }
+  return;
+}
+
 static void bas_print_gen(basis * bas, const char s[], FILE * f){
   for(int n=1; n<=NELEMENTS; n++){
     int nm = bas->lsto[n]-bas->lsto[n-1];
