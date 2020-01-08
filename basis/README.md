@@ -10,7 +10,7 @@ used to generate all the examples provided:
 
 If you want to generate starting orbitals with some other basis:
 * download it from [Basis Set Exchange](https://www.basissetexchange.org/) in the Dalton format
-* run the script, e.g.
+* run the conversion [script](basisconv.py), e.g.
   ```
   python3 ./basisconv.py somebasis.dalton > somebasis.in
   ```
