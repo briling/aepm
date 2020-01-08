@@ -136,7 +136,7 @@ and for each one a vector file called `%.vec` should exist.
 
 to be found in [mol_opt/](mol_opt/) and [qap_ex/](qap_ex):
 ```
-./qap basis/L1_b2.in  qap_ex/light.{in,opt.out}  np:4  # optimize cap exponents on 4 processors
+./qap basis/L1_b2.in  qap_ex/light.{in,opt.out}  np:4  # optimize cap exponents (run on 4 processors)
 
 ./qap basis/L1_b2.in  qap_ex/light.{in,f.out} check:1  # compute S and E measures
 
