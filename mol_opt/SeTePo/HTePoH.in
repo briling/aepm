@@ -1,0 +1,16 @@
+$system mem=64 disk=-512 $end
+$control
+ task=energy
+ theory=DFT
+ basis=b2u.in
+ save=HTePoH.vec
+$end
+
+$molecule
+ unit=b
+ cartesian
+  52    -1.17539630   2.45275090   1.13444047
+  84     1.21568697  -2.39150121   1.17685530
+   1     0.69005336   3.73184460  -1.12459515
+   1    -0.73034402  -3.79309429  -1.18670062
+$end

@@ -1,0 +1,279 @@
+p0=0.333333333: 'H' He 
+p1=0.062500000: Li Be 
+p2=0.333333333: 'B' 'C' 'N' 'O' 'F' Ne 
+p3=0.031250000: Na Mg 
+p4=0.125000000: 'Al' 'Si' 'P' 'S' 'Cl' Ar 
+p5=0.031250000: K Ca 
+p6=0.166666667: Sc Ti V Cr Mn Fe Co Ni Cu Zn 
+p7=0.083333333: Ga 'Ge' 'As' 'Se' 'Br' Kr 
+p8=0.031250000: Rb Sr 
+p9=0.125000000: Y Zr Nb Mo Tc Ru Rh Pd Ag Cd 
+p10=0.083333333: In Sn Sb Te I Xe 
+p11=0.031250000: Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb 
+p12=0.083333333: Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn 
+p13=0.031250000: Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No 
+
+p0(0)=0.333333333: H 
+p1(2)=0.333333333: B C N O F 
+p2(4)=0.125000000: Al Si P S Cl 
+p3(7)=0.083333333: Ge As Se Br 
+
+(0) mol_opt/light/Al2Cl6.in
+N = 128, M = 144, core = 40
+(1) mol_opt/light/AsH3.in
+N = 36, M = 42, core = 14
+(2) mol_opt/light/B2H6.in
+N = 16, M = 58, core = 2
+(3) mol_opt/light/Br2.in
+N = 70, M = 54, core = 28
+(4) mol_opt/light/C2H5OH.in
+N = 26, M = 72, core = 3
+(5) mol_opt/light/C6H12.in
+N = 48, M = 144, core = 6
+(6) mol_opt/light/CCl4.in
+N = 74, M = 86, core = 21
+(7) mol_opt/light/CH2Cl2.in
+N = 42, M = 60, core = 11
+(8) mol_opt/light/CH2O.in
+N = 16, M = 38, core = 2
+(9) mol_opt/light/CH3Cl.in
+N = 26, M = 47, core = 6
+(10) mol_opt/light/CH3OH.in
+N = 18, M = 48, core = 2
+(11) mol_opt/light/CH4.in
+N = 10, M = 34, core = 1
+(12) mol_opt/light/CHCl3.in
+N = 58, M = 73, core = 16
+(13) mol_opt/light/Cl2.in
+N = 34, M = 36, core = 10
+(14) mol_opt/light/ClCN.in
+N = 30, M = 46, core = 7
+(15) mol_opt/light/ClF3.in
+N = 44, M = 60, core = 8
+(16) mol_opt/light/CO2.in
+N = 22, M = 42, core = 3
+(17) mol_opt/light/CO.in
+N = 14, M = 28, core = 2
+(18) mol_opt/light/CS2.in
+N = 38, M = 50, core = 11
+(19) mol_opt/light/F2.in
+N = 18, M = 28, core = 2
+(20) mol_opt/light/FOOF.in
+N = 34, M = 56, core = 4
+(21) mol_opt/light/GeH4.in
+N = 36, M = 47, core = 14
+(22) mol_opt/light/Gly.in
+N = 40, M = 95, core = 5
+(23) mol_opt/light/H2CCCH2.in
+N = 22, M = 62, core = 3
+(24) mol_opt/light/H2CCH2.in
+N = 16, M = 48, core = 2
+(25) mol_opt/light/H2CCO.in
+N = 22, M = 52, core = 3
+(26) mol_opt/light/H2CNN.in
+N = 22, M = 52, core = 3
+(27) mol_opt/light/H2.in
+N = 2, M = 10, core = 0
+(28) mol_opt/light/H2O.in
+N = 10, M = 24, core = 1
+(29) mol_opt/light/H2Se.in
+N = 36, M = 37, core = 14
+(30) mol_opt/light/H2S.in
+N = 18, M = 28, core = 5
+(31) mol_opt/light/H3CCH3.in
+N = 18, M = 58, core = 2
+(32) mol_opt/light/H3CCN.in
+N = 22, M = 57, core = 3
+(33) mol_opt/light/H3CNC.in
+N = 22, M = 57, core = 3
+(34) mol_opt/light/H3CNCO.in
+N = 30, M = 71, core = 4
+(35) mol_opt/light/H3CNCS.in
+N = 38, M = 75, core = 8
+(36) mol_opt/light/H3CNNN.in
+N = 30, M = 71, core = 4
+(37) mol_opt/light/H6C6.in
+N = 42, M = 114, core = 6
+(38) mol_opt/light/H8C8.in
+N = 56, M = 152, core = 8
+(39) mol_opt/light/HBr.in
+N = 36, M = 32, core = 14
+(40) mol_opt/light/HCCH.in
+N = 14, M = 38, core = 2
+(41) mol_opt/light/HCl.in
+N = 18, M = 23, core = 5
+(42) mol_opt/light/HCN.in
+N = 14, M = 33, core = 2
+(43) mol_opt/light/HFCCCFH.in
+N = 38, M = 80, core = 5
+(44) mol_opt/light/HF.in
+N = 10, M = 19, core = 1
+(45) mol_opt/light/HNCO.in
+N = 22, M = 47, core = 3
+(46) mol_opt/light/HNCS.in
+N = 30, M = 51, core = 7
+(47) mol_opt/light/HOOH.in
+N = 18, M = 38, core = 2
+(48) mol_opt/light/N2.in
+N = 14, M = 28, core = 2
+(49) mol_opt/light/NCCN.in
+N = 26, M = 56, core = 4
+(50) mol_opt/light/NH3.in
+N = 10, M = 29, core = 1
+(51) mol_opt/light/P4.in
+N = 60, M = 72, core = 20
+(52) mol_opt/light/P4S4.in
+N = 124, M = 144, core = 40
+(53) mol_opt/light/PH3.in
+N = 18, M = 33, core = 5
+(54) mol_opt/light/quinone.in
+N = 56, M = 132, core = 8
+(55) mol_opt/light/SiH4.in
+N = 18, M = 38, core = 5
+(56) mol_opt/light/SiMe4.in
+N = 50, M = 134, core = 9
+
+
+<<< one-electron integrals
+
+<<< add atcv
+
+<<< read solution
+(0:0)  | -2.6e+00 | -8.3e-01  -3.0e-01 | -8.5e-02 |  mol_opt/light/Al2Cl6.in
+(0:1)  | -1.5e+00 | -5.8e-01  -2.5e-01 | +5.1e-05 |  mol_opt/light/AsH3.in
+(0:2)  | -6.5e+00 | -6.1e-01  -2.9e-01 | -7.1e-02 |  mol_opt/light/B2H6.in
+(0:3)  | -2.5e+00 | -7.8e-01  -2.5e-01 | -1.8e-01 |  mol_opt/light/Br2.in
+(0:4)  | -9.9e+00 | -9.2e-01  -2.1e-01 | +5.8e-02 |  mol_opt/light/C2H5OH.in
+(0:5)  | -9.9e+00 | -7.5e-01  -2.6e-01 | +7.3e-02 |  mol_opt/light/C6H12.in
+(0:6)  | -7.0e+00 | -9.0e-01  -2.8e-01 | -1.1e-01 |  mol_opt/light/CCl4.in
+(0:7)  | -7.0e+00 | -8.2e-01  -2.7e-01 | -4.8e-02 |  mol_opt/light/CH2Cl2.in
+(0:8)  | -1.0e+01 | -9.8e-01  -2.2e-01 | -8.9e-02 |  mol_opt/light/CH2O.in
+(0:9)  | -7.0e+00 | -7.7e-01  -2.5e-01 | -9.6e-03 |  mol_opt/light/CH3Cl.in
+(0:10)  | -9.9e+00 | -9.2e-01  -2.2e-01 | +5.8e-02 |  mol_opt/light/CH3OH.in
+(0:11)  | -9.9e+00 | -6.2e-01  -3.4e-01 | +1.1e-01 |  mol_opt/light/CH4.in
+(0:12)  | -7.0e+00 | -8.7e-01  -2.7e-01 | -8.0e-02 |  mol_opt/light/CHCl3.in
+(0:13)  | -7.0e+00 | -8.5e-01  -2.7e-01 | -1.8e-01 |  mol_opt/light/Cl2.in
+(0:14)  | -7.1e+00 | -8.9e-01  -3.1e-01 | -5.4e-02 |  mol_opt/light/ClCN.in
+(0:15)  | -7.2e+00 | -1.2e+00  -2.9e-01 | -2.2e-01 |  mol_opt/light/ClF3.in
+(0:16)  | -1.0e+01 | -1.1e+00  -3.3e-01 | -1.4e-02 |  mol_opt/light/CO2.in
+(0:17)  | -1.0e+01 | -1.1e+00  -3.2e-01 | -6.8e-02 |  mol_opt/light/CO.in
+(0:18)  | -5.7e+00 | -7.9e-01  -2.5e-01 | -1.0e-01 |  mol_opt/light/CS2.in
+(0:19)  | -2.4e+01 | -1.2e+00  -3.3e-01 | -2.2e-01 |  mol_opt/light/F2.in
+(0:20)  | -1.9e+01 | -1.3e+00  -3.2e-01 | -2.2e-01 |  mol_opt/light/FOOF.in
+(0:21)  | -1.1e+00 | -5.1e-01  -3.0e-01 | +3.4e-02 |  mol_opt/light/GeH4.in
+(0:22)  | -9.9e+00 | -1.0e+00  -1.9e-01 | -2.8e-02 |  mol_opt/light/Gly.in
+(0:23)  | -9.9e+00 | -7.2e-01  -2.4e-01 | -2.1e-02 |  mol_opt/light/H2CCCH2.in
+(0:24)  | -9.9e+00 | -6.9e-01  -2.5e-01 | -2.6e-02 |  mol_opt/light/H2CCH2.in
+(0:25)  | -9.9e+00 | -1.0e+00  -2.2e-01 | -8.0e-02 |  mol_opt/light/H2CCO.in
+(0:26)  | -9.9e+00 | -1.0e+00  -1.9e-01 | -8.9e-02 |  mol_opt/light/H2CNN.in
+(0:27)  |          | -3.8e-01  -3.8e-01 | +8.1e-02 |  mol_opt/light/H2.in
+(0:28)  | -1.9e+01 | -9.0e-01  -2.3e-01 | +5.2e-02 |  mol_opt/light/H2O.in
+(0:29)  | -2.0e+00 | -6.5e-01  -2.1e-01 | -2.3e-02 |  mol_opt/light/H2Se.in
+(0:30)  | -5.7e+00 | -6.7e-01  -2.2e-01 | -3.6e-03 |  mol_opt/light/H2S.in
+(0:31)  | -9.9e+00 | -6.8e-01  -3.0e-01 | +9.3e-02 |  mol_opt/light/H3CCH3.in
+(0:32)  | -9.9e+00 | -8.3e-01  -3.0e-01 | -4.4e-03 |  mol_opt/light/H3CCN.in
+(0:33)  | -9.9e+00 | -8.7e-01  -2.5e-01 | -8.9e-03 |  mol_opt/light/H3CNC.in
+(0:34)  | -9.9e+00 | -1.0e+00  -2.4e-01 | -1.5e-02 |  mol_opt/light/H3CNCO.in
+(0:35)  | -5.7e+00 | -8.9e-01  -2.2e-01 | -5.1e-02 |  mol_opt/light/H3CNCS.in
+(0:36)  | -9.9e+00 | -1.1e+00  -2.2e-01 | -6.0e-02 |  mol_opt/light/H3CNNN.in
+(0:37)  | -9.9e+00 | -7.8e-01  -2.3e-01 | -3.8e-02 |  mol_opt/light/H6C6.in
+(0:38)  | -9.9e+00 | -8.6e-01  -2.2e-01 | +4.0e-02 |  mol_opt/light/H8C8.in
+(0:39)  | -2.5e+00 | -7.3e-01  -2.7e-01 | -3.4e-02 |  mol_opt/light/HBr.in
+(0:40)  | -9.9e+00 | -6.8e-01  -2.6e-01 | +3.1e-03 |  mol_opt/light/HCCH.in
+(0:41)  | -7.0e+00 | -7.7e-01  -2.9e-01 | -1.1e-02 |  mol_opt/light/HCl.in
+(0:42)  | -9.9e+00 | -8.5e-01  -3.3e-01 | -2.7e-02 |  mol_opt/light/HCN.in
+(0:43)  | -9.9e+00 | -1.1e+00  -2.5e-01 | -6.0e-02 |  mol_opt/light/HFCCCFH.in
+(0:44)  | -2.4e+01 | -1.1e+00  -3.2e-01 | +4.3e-02 |  mol_opt/light/HF.in
+(0:45)  | -1.0e+01 | -1.0e+00  -2.7e-01 | -3.0e-02 |  mol_opt/light/HNCO.in
+(0:46)  | -5.7e+00 | -8.8e-01  -2.4e-01 | -7.3e-02 |  mol_opt/light/HNCS.in
+(0:47)  | -1.9e+01 | -1.0e+00  -2.2e-01 | -3.8e-02 |  mol_opt/light/HOOH.in
+(0:48)  | -1.4e+01 | -1.0e+00  -3.6e-01 | -6.2e-02 |  mol_opt/light/N2.in
+(0:49)  | -1.0e+01 | -9.1e-01  -3.5e-01 | -1.4e-01 |  mol_opt/light/NCCN.in
+(0:50)  | -1.4e+01 | -7.6e-01  -2.1e-01 | +7.0e-02 |  mol_opt/light/NH3.in
+(0:51)  | -4.5e+00 | -7.4e-01  -2.4e-01 | -5.8e-02 |  mol_opt/light/P4.in
+(0:52)  | -4.6e+00 | -7.7e-01  -2.1e-01 | -1.1e-01 |  mol_opt/light/P4S4.in
+(0:53)  | -4.5e+00 | -5.8e-01  -2.5e-01 | +8.5e-03 |  mol_opt/light/PH3.in
+(0:54)  | -9.9e+00 | -9.8e-01  -2.3e-01 | -1.7e-01 |  mol_opt/light/quinone.in
+(0:55)  | -3.5e+00 | -4.9e-01  -3.1e-01 | +2.5e-02 |  mol_opt/light/SiH4.in
+(0:56)  | -3.4e+00 | -6.4e-01  -2.6e-01 | +7.2e-02 |  mol_opt/light/SiMe4.in
+
+check=1
+
+                               f(energy)            f(overlap)           max. overlap. d.
+mol_opt/light/Al2Cl6.in   :    0.026464849768267    0.037063889032861    0.002472286997330   (0)   #0
+mol_opt/light/AsH3.in     :    0.004065250856668    0.005758923368385    0.001685597085475   (0)   #1
+mol_opt/light/B2H6.in     :    0.007131075895901    0.009424959761639    0.001077654264274   (0)   #2
+mol_opt/light/Br2.in      :    0.013472257922430    0.014335750954642    0.001247144556202   (0)   #3
+mol_opt/light/C2H5OH.in   :    0.007166022788403    0.007328321746722    0.001067746619520   (0)   #4
+mol_opt/light/C6H12.in    :    0.009556867993827    0.008886299606039    0.000503310525474   (0)   #5
+mol_opt/light/CCl4.in     :    0.025920131584337    0.027660113309520    0.001963882102009   (0)   #6
+mol_opt/light/CH2Cl2.in   :    0.009077297286890    0.008401599267219    0.000727202827846   (0)   #7
+mol_opt/light/CH2O.in     :    0.005360881073090    0.006745706836997    0.002037455432143   (0)   #8
+mol_opt/light/CH3Cl.in    :    0.004690281001592    0.004276642672275    0.000491147873154   (0)   #9
+mol_opt/light/CH3OH.in    :    0.004458897843273    0.004148816652173    0.001038239023604   (0)   #10
+mol_opt/light/CH4.in      :    0.004223269108528    0.005253154733457    0.000682442985062   (0)   #11
+mol_opt/light/CHCl3.in    :    0.016264567618459    0.016245025273805    0.001268816618035   (0)   #12
+mol_opt/light/Cl2.in      :    0.010951812182144    0.010313818998414    0.000940985816509   (0)   #13
+mol_opt/light/ClCN.in     :    0.016405964573770    0.026696512229759    0.004009970507912   (0)   #14
+mol_opt/light/ClF3.in     :    0.025040587771155    0.028301539188452    0.004103195058339   (0)   #15
+mol_opt/light/CO2.in      :    0.014772763639977    0.018599373698955    0.003318289386356   (0)   #16
+mol_opt/light/CO.in       :    0.010069297816877    0.009525305883853    0.002193626581507   (0)   #17
+mol_opt/light/CS2.in      :    0.010118138290369    0.011089518789611    0.001020773407225   (0)   #18
+mol_opt/light/F2.in       :    0.015541136604567    0.008558800643164    0.000833616419305   (0)   #19
+mol_opt/light/FOOF.in     :    0.040968356575443    0.088839776785125    0.019242757765528   (0)   #20
+mol_opt/light/GeH4.in     :    0.002372447197247    0.002164496733576    0.000326781347514   (0)   #21
+mol_opt/light/Gly.in      :    0.020923821430238    0.028322320499284    0.005305142929451   (0)   #22
+mol_opt/light/H2CCCH2.in  :    0.005955158292299    0.006474781987775    0.000718093125671   (0)   #23
+mol_opt/light/H2CCH2.in   :    0.003564841038823    0.002915873188967    0.000397791292767   (0)   #24
+mol_opt/light/H2CCO.in    :    0.012561540674076    0.021100890427643    0.006182478569290   (0)   #25
+mol_opt/light/H2CNN.in    :    0.007451770119116    0.009666655014880    0.002679937087997   (0)   #26
+mol_opt/light/H2.in       :    0.000313681828056    0.000179602589690    0.000089805327343   (0)   #27
+mol_opt/light/H2O.in      :    0.005663082324212    0.007222141320873    0.001817091595129   (0)   #28
+mol_opt/light/H2Se.in     :    0.003924048261325    0.005022015226907    0.001237610851222   (0)   #29
+mol_opt/light/H2S.in      :    0.003295249742175    0.003809969157459    0.000880005253817   (0)   #30
+mol_opt/light/H3CCH3.in   :    0.005113901090482    0.005650142952413    0.000590034225522   (0)   #31
+mol_opt/light/H3CCN.in    :    0.012921822849020    0.022099884634161    0.004242970877161   (0)   #32
+mol_opt/light/H3CNC.in    :    0.009145846105011    0.007372147744943    0.001464059174391   (0)   #33
+mol_opt/light/H3CNCO.in   :    0.014360152916897    0.019109090975569    0.003576377199886   (0)   #34
+mol_opt/light/H3CNCS.in   :    0.011159993372621    0.016535981040095    0.003184388039594   (0)   #35
+mol_opt/light/H3CNNN.in   :    0.010724247712816    0.012332047027399    0.002147925923652   (0)   #36
+mol_opt/light/H6C6.in     :    0.006546215451450    0.004513663849929    0.000239733959842   (0)   #37
+mol_opt/light/H8C8.in     :    0.010307654558566    0.006789244419819    0.000314207254473   (0)   #38
+mol_opt/light/HBr.in      :    0.004800144716247    0.005357897547665    0.000929765187934   (0)   #39
+mol_opt/light/HCCH.in     :    0.006236309652831    0.004956736696401    0.001531647410936   (0)   #40
+mol_opt/light/HCl.in      :    0.003348894202219    0.003306775657260    0.000604670674493   (0)   #41
+mol_opt/light/HCN.in      :    0.009697855062997    0.016022255359326    0.003061945731782   (0)   #42
+mol_opt/light/HFCCCFH.in  :    0.015740249169401    0.022827575893293    0.003770627736128   (0)   #43
+mol_opt/light/HF.in       :    0.002185102125496    0.001643265479965    0.000649961353330   (0)   #44
+mol_opt/light/HNCO.in     :    0.016395458341700    0.024956297801101    0.004595453947099   (0)   #45
+mol_opt/light/HNCS.in     :    0.011546851962853    0.016506675272449    0.003150384394268   (0)   #46
+mol_opt/light/HOOH.in     :    0.004662556729646    0.003114346125737    0.000360510449077   (0)   #47
+mol_opt/light/N2.in       :    0.006186306958297    0.003465548407956    0.000554783632419   (0)   #48
+mol_opt/light/NCCN.in     :    0.020417994395697    0.035587387965163    0.005888281859372   (0)   #49
+mol_opt/light/NH3.in      :    0.010085740355704    0.014613888418059    0.002469273910370   (0)   #50
+mol_opt/light/P4.in       :    0.043601443124815    0.075124982708017    0.007207457211420   (0)   #51
+mol_opt/light/P4S4.in     :    0.043419252904040    0.067178087619822    0.003654729828484   (0)   #52
+mol_opt/light/PH3.in      :    0.003923010303647    0.005032703543972    0.001332243804886   (0)   #53
+mol_opt/light/quinone.in  :    0.019035363601223    0.026552682557790    0.005465085924723   (0)   #54
+mol_opt/light/SiH4.in     :    0.002328746752940    0.002087766414171    0.000331654534063   (0)   #55
+mol_opt/light/SiMe4.in    :    0.025422093116475    0.037331152828490    0.001644961014665   (0)   #56
+
+linear regression
+
+atom    1 :   -0.000242417379338   -0.000833472259926
+atom    5 :    0.004292790085965    0.007212896660596
+atom    6 :    0.001905851980932    0.002520437168515
+atom    7 :    0.005245202206452    0.007894826095778
+atom    8 :    0.006490281506588    0.011341266417970
+atom    9 :    0.007717510296853    0.011573100272728
+atom   13 :   -0.002604547707622    0.002460288211291
+atom   14 :    0.012003055007549    0.021336363363705
+atom   15 :    0.009724167990228    0.016690847102872
+atom   16 :    0.001989718929972    0.001621715452521
+atom   17 :    0.005278990863918    0.005357218768380
+atom   32 :    0.003342116714600    0.005498385773278
+atom   33 :    0.004792502994683    0.008259340148161
+atom   34 :    0.004408883020001    0.006688959746758
+atom   35 :    0.006397415588089    0.006972574343375
+
+Σe^2/Σf^2 :    0.063289544989440    0.153746570398493

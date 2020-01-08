@@ -1,0 +1,16 @@
+$system mem=64 disk=-512 $end
+$control
+ task=energy
+ theory=DFT
+ basis=b2u.in
+ save=H2Se2.vec
+$end
+
+$molecule
+ unit=b
+ cartesian
+  34    -1.01520011   2.00298876   0.98688962
+  34     1.01520008  -2.00298867   0.98688954
+   1     0.61592193   3.16806866  -0.98688958
+   1    -0.61592190  -3.16806874  -0.98688958
+$end

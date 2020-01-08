@@ -1,0 +1,18 @@
+$system mem=256 disk=-256 $end
+$control
+ task=energy
+ theory=dft
+ basis=b2.in
+ save=CH2O.vec
+$end
+
+$molecule
+ unit=b
+ cartesian
+   6     0.00000000   0.00000000   0.00463234
+   8     0.00000000   0.00000000   2.28675139
+   1     1.77680387   0.00000000  -1.14569186
+   1    -1.77680387  -0.00000000  -1.14569186
+$end
+ Energy =   -114.4114714735
+  dipole =   0.845938 au (  2.150177 D)

@@ -1,0 +1,71 @@
+0.33333333333333333333  1-2
+0.0625                  3-4
+0.33333333333333333333  5-10
+0.03125                11-12
+0.125                  13-18
+0.03125                19-20
+0.16666666666666666666 21-30
+0.08333333333333333333 31-36
+0.03125                37-38
+0.125                  39-48
+0.08333333333333333333 49-54
+0.03125                55-70
+0.08333333333333333333 71-86
+0.03125                87-102
+mol_opt/light/Al2Cl6.in
+mol_opt/light/AsH3.in
+mol_opt/light/B2H6.in
+mol_opt/light/Br2.in
+mol_opt/light/C2H5OH.in
+mol_opt/light/C6H12.in
+mol_opt/light/CCl4.in
+mol_opt/light/CH2Cl2.in
+mol_opt/light/CH2O.in
+mol_opt/light/CH3Cl.in
+mol_opt/light/CH3OH.in
+mol_opt/light/CH4.in
+mol_opt/light/CHCl3.in
+mol_opt/light/Cl2.in
+mol_opt/light/ClCN.in
+mol_opt/light/ClF3.in
+mol_opt/light/CO2.in
+mol_opt/light/CO.in
+mol_opt/light/CS2.in
+mol_opt/light/F2.in
+mol_opt/light/FOOF.in
+mol_opt/light/GeH4.in
+mol_opt/light/Gly.in
+mol_opt/light/H2CCCH2.in
+mol_opt/light/H2CCH2.in
+mol_opt/light/H2CCO.in
+mol_opt/light/H2CNN.in
+mol_opt/light/H2.in
+mol_opt/light/H2O.in
+mol_opt/light/H2Se.in
+mol_opt/light/H2S.in
+mol_opt/light/H3CCH3.in
+mol_opt/light/H3CCN.in
+mol_opt/light/H3CNC.in
+mol_opt/light/H3CNCO.in
+mol_opt/light/H3CNCS.in
+mol_opt/light/H3CNNN.in
+mol_opt/light/H6C6.in
+mol_opt/light/H8C8.in
+mol_opt/light/HBr.in
+mol_opt/light/HCCH.in
+mol_opt/light/HCl.in
+mol_opt/light/HCN.in
+mol_opt/light/HFCCCFH.in
+mol_opt/light/HF.in
+mol_opt/light/HNCO.in
+mol_opt/light/HNCS.in
+mol_opt/light/HOOH.in
+mol_opt/light/N2.in
+mol_opt/light/NCCN.in
+mol_opt/light/NH3.in
+mol_opt/light/P4.in
+mol_opt/light/P4S4.in
+mol_opt/light/PH3.in
+mol_opt/light/quinone.in
+mol_opt/light/SiH4.in
+mol_opt/light/SiMe4.in

@@ -1,0 +1,15 @@
+$system mem=256 disk=-256 $end
+$control
+ task=energy
+ theory=dft
+ basis=b2.in
+ save=Cl2.vec
+$end
+
+$molecule
+ unit=b
+ cartesian
+  17     0.00000000   0.00000000   1.94996512
+  17     0.00000000   0.00000000  -1.94996512
+$end
+ Energy =   -920.0268816540

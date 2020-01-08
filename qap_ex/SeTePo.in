@@ -1,0 +1,33 @@
+fix   0.333333333333333  1-2
+fix   0.333333333333333  5-10
+fix   0.125              13-18
+0.092319520421544  34
+0.085025542129315  52
+0.079753139283162  84
+mol_opt/SeTePo/PoF6.in
+mol_opt/SeTePo/TeF6.in
+mol_opt/SeTePo/H2Te_ii.in
+mol_opt/SeTePo/H2Te.in
+mol_opt/SeTePo/TeO6H6.in
+mol_opt/SeTePo/H2Po2.in
+mol_opt/SeTePo/HOSeH.in
+mol_opt/SeTePo/H2Se_ii.in
+mol_opt/SeTePo/Se6.in
+mol_opt/SeTePo/SeF6.in
+mol_opt/SeTePo/HSSeH.in
+mol_opt/SeTePo/H2Se.in
+mol_opt/SeTePo/Se8.in
+mol_opt/SeTePo/HTePoH.in
+mol_opt/SeTePo/HOTeH.in
+mol_opt/SeTePo/Te6.in
+mol_opt/SeTePo/HSePoH.in
+mol_opt/SeTePo/H2Po.in
+mol_opt/SeTePo/Te8.in
+mol_opt/SeTePo/H2Te2.in
+mol_opt/SeTePo/H2Se2.in
+mol_opt/SeTePo/Po6.in
+mol_opt/SeTePo/HSPoH.in
+mol_opt/SeTePo/HSTeH.in
+mol_opt/SeTePo/Po8.in
+mol_opt/SeTePo/HOPoH.in
+mol_opt/SeTePo/HSeTeH.in

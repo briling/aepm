@@ -1,0 +1,18 @@
+$system mem=256 disk=-256 $end
+$control
+ task=energy
+ theory=dft
+ basis=b2.in
+ save=HOOH.vec
+$end
+
+$molecule
+ unit=b
+ cartesian
+   1    -0.71583296  -2.14851585  -0.50027042
+   8     0.56828160  -1.28714686   0.50025559
+   8    -0.56828160   1.28714686   0.50025559
+   1     0.71583296   2.14851585  -0.50027042
+$end
+ Energy =   -151.4492106285
+  dipole =   0.730053 au (  1.855623 D)
