@@ -155,7 +155,7 @@ to be found in [mol_opt/](mol_opt/) and [qap_ex/](qap_ex):
 * `mol_opt/*/*.in`  – molecular geometry files
 * `mol_opt/*/*.vec` – corresponding SCF vectors computed with Priroda-19 (PBE/L1)
 * `qap_ex/`         – `qap` input and output files
-* `basis/`          – basis sets taken from \[[2]\] and \[[3]\]
+* `basis/`          – basis sets taken from \[[2]\] and \[[3]\] (see [basis/README.md](basis/README.md))
 
 
 ## References
