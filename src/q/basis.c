@@ -136,25 +136,30 @@ void basel_print_gc2gen(int n, basis_gc * bas, int c, const char s[], FILE * f){
     int l = bas->l[ll];
 
     for(int j=0; j<bas->nc[ll]; j++){
-      int np = count_primitives_gc(bas, ll, j);
+
+      int np = 0;
+      for(int i=bas->lp[ll]; i<bas->lp[ll+1]; i++){
+        double c = bas->c[ +bas->lc[ll] +bas->np[ll]*j +(i-bas->lp[ll]) ];
+        if(fabs(c)>EPS) np++;
+      }
+
       if(c){
         fprintf(f, "%s %c %2d\n",  s, shellname[l], np);
       }
       else{
         fprintf(f, "%s%1d %2d\n", s, l, np);
       }
+
       for(int i=bas->lp[ll]; i<bas->lp[ll+1]; i++){
-        double c = bas->c[
-          +bas->lc[ll]
-          +bas->np[ll]*j
-          +(i-bas->lp[ll])
-          ];
+        double c = bas->c[ +bas->lc[ll] +bas->np[ll]*j +(i-bas->lp[ll]) ];
         if(fabs(c)>EPS){
           double a  = bas->a[i];
           double s2 = int_s00(l, a);
           fprintf(f, "%s %.10e % .10e\n", s, a, c*sqrt(s2));
         }
       }
+
+
     }
   }
   return;
