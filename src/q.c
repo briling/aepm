@@ -107,7 +107,7 @@ int main(int argc, char * argv[]){
   if(task.control.aaar){
     u_rel = u_rel_fill(m, urelconst);
   }
-  int * al = oneint_fill(M, m, bas, btype, ao, S, H, Dxyz, task.control.finite_nuclei, u_rel, boys_array, fo);
+  int * al = oneint_fill(M, m, bas, btype, ao, S, H, Dxyz, task.control.finite_nuclei, u_rel, boys_array, NULL);
   free(u_rel);
 
   double * X = malloc((symsize(M)+M*M)*sizeof(double));
@@ -119,6 +119,7 @@ int main(int argc, char * argv[]){
   double * V = malloc((M*M+M+symsize(M))*sizeof(double));
   double * C = V + M;
   double * F = C + M*M;
+  fprintf(fo, "\n<<< two-electron integrals\n");
   init_lb20_heff(M, F, H, m, ao, al, btype, bas, boys_array);
 #if 0
   oneint_print(M, S, F);

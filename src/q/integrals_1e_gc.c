@@ -124,7 +124,9 @@ void oneint_fill_gc(mol * m, basis_gc * bas, atomo * ao, int * al,
 
   for(int k1=0; k1<m->n; k1++){
     for(int k2=k1; k2<m->n; k2++){
-      progress(k2, m->n, 12, fo);
+      if(fo){
+        progress(k2, m->n, 12, fo);
+      }
       int q1 = m->q[k1];
       int q2 = m->q[k2];
       double * r1 = m->r+3*k1;
