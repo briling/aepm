@@ -1,0 +1,9 @@
+obj/*.o
+obj/*/*.o
+/q
+/qap
+
+.maketypes.bash
+.tags
+.types.vim
+.vimrc
