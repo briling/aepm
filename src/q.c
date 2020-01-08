@@ -47,7 +47,7 @@ int main(int argc, char * argv[]){
   FILE * fo = stdout;
   taskstr task = task_q_init(argv[1], argv[2]);
   for(int i=3; i<argc; i++){
-    if( sscanf (argv[i], "vectors:%d",        task.control.vectors      )) { continue; }
+    if( sscanf (argv[i], "vectors:%s",        task.control.vectors      )) { continue; }
     if( sscanf (argv[i], "aaar:%d",          &task.control.aaar         )) { continue; }
     if( sscanf (argv[i], "finite_nuclei:%d", &task.control.finite_nuclei)) { continue; }
     if( sscanf (argv[i], "print:%d",         &task.control.print        )) { continue; }
