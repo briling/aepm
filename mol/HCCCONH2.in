@@ -1,8 +1,3 @@
-$control
-theory=dft
-basis=b2n.in
-task=optimize
-$end
 $molecule
  unit=b
  cartesian
@@ -15,5 +10,3 @@ $molecule
    6    -3.95975566  -0.07217994  -0.00035113
    1    -5.95268676  -0.44766139   0.00942034
 $end
- Energy =   -245.8352505866
-  dipole =   1.495392 au (  3.800937 D)
