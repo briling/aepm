@@ -12,6 +12,7 @@ char ** flist_read(int * nlines, FILE * fl){
 
   int n = 0;
   if(flcont[flsize-1] != '\n'){
+    PRINT_ERR("\tlist?\n");
     GOTOHELL;
   }
   for(int i=0; i<flsize; i++){
@@ -21,6 +22,10 @@ char ** flist_read(int * nlines, FILE * fl){
     else if(flcont[i] == '\n'){
       n++;
     }
+  }
+  if(!n){
+    PRINT_ERR("\tlist?\n");
+    GOTOHELL;
   }
 
   char ** fnames = realloc(flcont, flsize + sizeof(char *)*n);

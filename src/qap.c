@@ -149,7 +149,7 @@ int main(int argc, char * argv[]){
     free(urelconst);
     free(bas);
     free(boys_array);
-    PRINT_ERR("\tlist?\n");
+    PRINT_ERR("\tinput?\n");
     return 1;
   }
 
@@ -192,6 +192,7 @@ int main(int argc, char * argv[]){
 
   nmol = remove_oddmols(nmol, md, atpar, fnames);
   if(!nmol || !npar){
+    PRINT_ERR("nothing to optimize\n");
     GOTOHELL;
   }
 

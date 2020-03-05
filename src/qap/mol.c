@@ -130,6 +130,7 @@ void mol_readvec(mol_data * md, char * fname, FILE * fo){
   md->F0 = md->C0 + M*M;
   md->P0 = md->F0 + symsize(M);
   if(!pvec_read(M, md->ao, md->V0, md->C0, NULL, NULL, vname)){
+    PRINT_ERR("Cannot read vectors from file '%s'\n", vname);
     GOTOHELL;
   }
 

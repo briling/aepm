@@ -6,7 +6,7 @@ int pars_read(double a0[NATOMS], int bp[NATOMS], int fixflag[NATOMS], FILE * fl)
   double ta;
   unsigned int i1, i2;
   int npar = 0;
-  while(fscanf(fl, " fix %lf %u - %u", &ta, &i1, &i2) || fscanf(fl, "%lf %u - %u", &ta, &i1, &i2)){
+  while(fscanf(fl, " fix %lf %u - %u", &ta, &i1, &i2)>=2 || fscanf(fl, "%lf %u - %u", &ta, &i1, &i2)>=2){
     npar++;
   }
   rewind(fl);
@@ -27,6 +27,7 @@ int pars_read(double a0[NATOMS], int bp[NATOMS], int fixflag[NATOMS], FILE * fl)
     int i10 = j ? bp[i-1] : 1;
     if(i1 != i10){
       if(i1<i10){
+        PRINT_ERR("\tparameters!\n");
         GOTOHELL;
       }
       a0[i] = a_def;
