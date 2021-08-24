@@ -121,6 +121,14 @@ int main(int argc, char * argv[]){
   double * F = C + M*M;
   fprintf(fo, "\n<<< two-electron integrals\n");
   init_lb20_heff(M, F, H, m, ao, al, btype, bas, boys_array);
+
+  if(task.control.print){
+    switch(task.control.print){
+      case 11: mx_nosym_print(M, F, fo); break;
+      case 12: mx_sym_print  (M, F, fo); break;
+    }
+  }
+
 #if 0
   oneint_print(M, S, F);
 #endif
