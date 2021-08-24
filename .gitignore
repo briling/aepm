@@ -7,3 +7,5 @@ obj/*/*.o
 .tags
 .types.vim
 .vimrc
+
+*.pyc
