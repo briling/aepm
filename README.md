@@ -28,13 +28,15 @@ make q qap
 
 To generate starting orbitals for a molecule, run
 ```
-./q <basis> <molecule>.{in,out} [options]
+./q <basis-set-file> <molecule>.{in,out} [options]
 ```
+For basis set file format, see [basis/README.md](basis/README.md).
+
 | command-line option      |  description                                                                                                                                                       | default value                                                               |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
 | `vectors:%s`             | file to save the vectors in                                                                                                                                  | `<molecule>.vec`                                                                  |
-| `print:%d`               | `1`: print density matrix; `2`: print density matrix in the lower-triangular form; `3`: print vectors in column-major order; `4`: print vectors in `MOLDEN` format | `0`                                                                         |
-| `aaar:%d`                | if > 0, use the two-component scalar-relativistic approximation \[[3]\], the parameters have to be specified in the basis set file                                 | `1` if the parameters are specified                                         |
+| `print:%d`               | `1`: print the density matrix;<br>`2`: print the density matrix in the lower-triangular form;<br>`3`: print the orbital coefficients (vectors) in the column-major order;<br>`4`: print the vectors in `MOLDEN` format;<br>`11`: print the effective Hamiltonian matrix;<br>`12`: print the effective Hamiltonian matrix in the lower-triangular form | `0`                                                                         |
+| `aaar:%d`                | if > 0, use the two-component scalar-relativistic approximation \[[3]\], the parameters have to be specified in the basis set file                                 | `1` if the basis set file contains the parameters (e.g. `basis/L1_b2.in`); <br> `0` otherwise (e.g. `basis/L1_b2u.in`)                                         |
 | `finite_nuclei:%d`       | if > 0, use the finite Gaussian nucleus model \[[4]\]                                                                                                              | `1` if the scalar-relativistic approximation is enabled; <br> `0` otherwise |
 
 #### Examples
@@ -64,6 +66,14 @@ Spherical basis functions are used and their order is as follows:
   P: P0, P+1, P-1
   D: D0, D+1, D-1, D+2, D-2
   F: F0, F+1, F-1, F+2, F-2, F+3, F-3
+etc.
+
+
+However, when the density matrix or the effective Hamiltonian matrix are printed,
+the order of basis functions is as follows:
+  P: P-1, P0, P+1
+  D: D-2, D-1, D0, D+1, D+2
+  F: F-3, F-2, F-1, F0, F+1, F+2
 etc.
 ```
 
