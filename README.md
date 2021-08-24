@@ -35,8 +35,8 @@ For basis set file format, see [basis/README.md](basis/README.md).
 | command-line option      |  description                                                                                                                                                       | default value                                                               |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
 | `vectors:%s`             | file to save the vectors in                                                                                                                                  | `<molecule>.vec`                                                                  |
-| `print:%d`               | `1`: print the density matrix;<br>`2`: print the density matrix in the lower-triangular form;<br>`3`: print the orbital coefficients (vectors) in the column-major order;<br>`4`: print the vectors in `MOLDEN` format;<br>`11`: print the effective Hamiltonian matrix;<br>`12`: print the effective Hamiltonian matrix in the lower-triangular form | `0`                                                                         |
-| `aaar:%d`                | if > 0, use the two-component scalar-relativistic approximation \[[3]\], the parameters have to be specified in the basis set file                                 | `1` if the basis set file contains the parameters (e.g. `basis/L1_b2.in`); <br> `0` otherwise (e.g. `basis/L1_b2u.in`)                                         |
+| `print:%d`               | `1`: print the density matrix;<br>`2`: print the density matrix in the lower-triangular form;<br>`3`: print the orbital coefficients (vectors) in the column-major order;<br>`4`: print the vectors in `MOLDEN` format;<br>`11`: print the effective Hamiltonian matrix;<br>`12`: print the effective Hamiltonian matrix in the lower-triangular form | `0` |
+| `aaar:%d`                | if > 0, use the two-component scalar-relativistic approximation \[[3]\], the parameters have to be specified in the basis set file                                 | `1` if the basis set file contains the parameters (e.g. `basis/L1_b2.in`); <br> `0` otherwise (e.g. `basis/L1_b2u.in`)  |
 | `finite_nuclei:%d`       | if > 0, use the finite Gaussian nucleus model \[[4]\]                                                                                                              | `1` if the scalar-relativistic approximation is enabled; <br> `0` otherwise |
 
 #### Examples
@@ -166,6 +166,7 @@ to be found in [mol_opt/](mol_opt/) and [qap_ex/](qap_ex):
 * `mol_opt/*/*.vec` – corresponding SCF vectors computed with Priroda-19 (PBE/L1)
 * `qap_ex/`         – `qap` input and output files
 * `basis/`          – basis sets taken from \[[2]\] and \[[3]\] (see [basis/README.md](basis/README.md))
+* `data/`           – parameters (HF-based and HFS-based) as in the Supplementary material for the article
 
 
 ## References
