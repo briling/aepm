@@ -7,15 +7,13 @@ used to generate all the examples provided:
 * `L1_b2.in` – the L1 set taken from \[[2](../README.md#user-content-ref2)\]
 * `L1_b2u.in` – the L1 set taken from \[[3](../README.md#user-content-ref3)\]
 
+If you want to generate starting orbitals for some other basis set:
+* download it from [Basis Set Exchange](https://www.basissetexchange.org/) in the Dalton format and
+* run the conversion [script](basisconv.py).
 
-If you want to generate starting orbitals with some other basis:
-* download it from [Basis Set Exchange](https://www.basissetexchange.org/) in the Dalton format
-* run the conversion [script](basisconv.py), e.g.
+For example, to use STO-3G one can run in the main directory:
   ```
-  python3 ./basisconv.py somebasis.dalton > somebasis.in
-  ```
-* go back and use this basis, e.g.
-  ```
-  ./q basis/somebasis.in molecule.in
+  python3 basis/basisconv.py <((curl "https://www.basissetexchange.org/api/basis/sto-3g/format/dalton/?version=1")) > basis/sto3g.in
+  ./q basis/sto3g.in your-molecule.in
   ```
 
