@@ -13,7 +13,7 @@ If you want to generate starting orbitals for some other basis set:
 
 For example, to use STO-3G one can run in the main directory:
   ```
-  python3 basis/basisconv.py <((curl "https://www.basissetexchange.org/api/basis/sto-3g/format/dalton/?version=1")) > basis/sto3g.in
+  python3 basis/basisconv.py <((curl "https://www.basissetexchange.org/api/basis/sto-3g/format/dalton/?version=1&optimize_general=true")) > basis/sto3g.in
   ./q basis/sto3g.in your-molecule.in
   ```
 
