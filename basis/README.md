@@ -17,3 +17,4 @@ For example, to use STO-3G one can run in the main directory:
   ./q basis/sto3g.in your-molecule.in
   ```
 
+Another way is to use the `get_basis.py` script (if you have PySCF).
